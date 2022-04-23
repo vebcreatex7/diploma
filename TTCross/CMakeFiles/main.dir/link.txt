@@ -1,0 +1,1 @@
+/usr/bin/c++  -Wall   CMakeFiles/main.dir/matrix.cpp.o CMakeFiles/main.dir/main.cpp.o CMakeFiles/main.dir/calculation.cpp.o CMakeFiles/main.dir/skeleton.cpp.o  -o main 
