@@ -9,7 +9,7 @@ private:
 
 public:
     TensorTrain();
-    std::vector<Core>& Cores() const;
+    const std::vector<Core>& Cores() const;
     void TTCross(const Tensor& t, double eps);
 };
 
