@@ -3,52 +3,51 @@
 #include "unfoldingMatrix.hpp"
 #include "tensor.hpp"
 
-UnfoldingMatrix::UnfoldingMatrix(const Tensor& t) : Tensor(t) {}
 
-UnfoldingMatrix::UnfoldingMatrix(const UnfoldingMatrix& t) : Tensor(t) {}
+UnfoldingMatrix::UnfoldingMatrix(const ImplicitTensor& t, size_t n, size_t m) :
+    n_(n), m_(m), t_(t) {}
 
-UnfoldingMatrix UnfoldingMatrix::Reshape(size_t n, size_t m) {
-    TMatrix res();
+
+double UnfoldingMatrix::operator()(size_t i, size_t j) const {
+    return t_(i,j);
 }
 
-std::vector<size_t> UnfoldingMatrix::row(size_t p) {
-    std::vector<size_t> idxs;
+TMatrix UnfoldingMatrix::ExplicitRows(const std::vector<size_t>& I) const {
+    size_t n = I.size();
+    TMatrix res(n,m_,0.);
 
-    if (k_ == 0) {
-        idxs.push_back(p);
-        return idxs;
+    for (size_t i = 0; i < n; i++) {
+        for (size_t j = 0; j < m_; j++) {
+            res[i][j] = t_(I[i],j);
+        }
     }
 
-    idxs.insert(idxs.end(), I[p % I.size()].begin(), I[p % I.size()].end());
-    idxs.push_back(p / I.size());
-
-    return idxs;
+    return res;
 }
 
-std::vector<size_t> UnfoldingMatrix::col(size_t p) {
+TMatrix UnfoldingMatrix::ExplicitCols(const std::vector<size_t>& J) const {
+    size_t m = J.size();
+    TMatrix res(n_,m,0.);
 
-    std::vector<size_t> idxs;
-
-    std::vector<size_t> n;
-    n.assign(Sizes().begin() + k_ + 1, Sizes().end());
-
-    size_t product = std::accumulate(n.begin(), n.end(), 1, std::multiplies<size_t>());
-
-    for (int i = n.size() - 1; i >= 0; i--) {
-        product /= n[i];
-        size_t idx = p / product;
-        p %= product;
-
-        idxs.push_back(idx);
+    for (size_t i = 0; i < n_; i++) {
+        for (int j = 0; j < m; j++) {
+            res[i][j] = t_(i, J[j]);
+        }
     }
 
-    return idxs;
+    return res;
 }
 
-double UnfoldingMatrix::Get(size_t i, size_t j) const {
-    vector<size_t> idxs;
+TMatrix UnfoldingMatrix::ExplicitMaxvol(const std::vector<size_t>& I, const std::vector<size_t>& J) const {
+    size_t n = I.size();
+    size_t m = J.size();
+    TMatrix res(n,m,0.);
 
+    for (size_t i = 0; i < n; i++) {
+        for (size_t j = 0; j < m; j++) {
+            res[i][j] = t_(I[i], J[j]);
+        }
+    }
 
-    
+    return res;
 }
-

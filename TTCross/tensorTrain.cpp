@@ -4,18 +4,17 @@
 #include "unfoldingMatrix.hpp"
 #include "skeleton.hpp"
 
-void TensorTrain::TTCross(const Tensor& t, double eps) {
-    
+void TensorTrain::TTCross(ImplicitTensor t, double eps) {
     auto sizes = t.Sizes();
     size_t d =  t.Dimension();
-    UnfoldingMatrix A(t);
 
     ttRanks.push_back(1);
 
 
-    for (int k = 0; k < d; k++) {
-        size_t n = ttRanks[k] * sizes[k], m = std::accumulate(sizes.begin() + k + 1, sizes.end(), 1, std::multiplies<size_t>());
-        A = A.Reshape(n,m);
+    for (int k = 1; k < d; k++) {
+        size_t n = ttRanks[k-1] * sizes[k], m = std::accumulate(sizes.begin() + k + 1, sizes.end(), 1, std::multiplies<size_t>());
+
+        UnfoldingMatrix A(t, n, m);
 
         auto [I,J] = Skeleton(A, eps);
 
@@ -26,6 +25,6 @@ void TensorTrain::TTCross(const Tensor& t, double eps) {
 
         cores.push_back(Core(U * A_hat.Inverse(), ttRanks[k-1], sizes[k], ttRanks[k]));
 
-        A.Compress(I);
+        t.Reshape(I);
     }
 }

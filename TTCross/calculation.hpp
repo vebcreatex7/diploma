@@ -1,5 +1,6 @@
 #include "matrix.hpp"
 #include <tuple>
+#include <vector>
 #include <iomanip>
 
 int Diagonals_Without_Zeros(TMatrix& A, TMatrix& b);

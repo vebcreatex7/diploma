@@ -1,7 +1,9 @@
 #include "calculation.hpp"
 #include "matrix.hpp"
 #include "skeleton.hpp"
+#include "core.hpp"
 #include <random>
+#include <vector>
 
 using namespace std;
 
@@ -60,20 +62,28 @@ TMatrix maxvol(TMatrix& a, vector<int>& I, vector<int>& J){
 }
 
 int main() {
-    srand (time(NULL));
-    int n, m;
-    double density;
-    std::cin >> n >> m >> density;
-    TMatrix A = SparseMatrix(n,m, density);
-    cout << A << endl;
-    auto [I,J] = Skeleton(A, 0.1);
+    size_t n, m;
+    cin >> n >> m;
 
-    TMatrix U = RestoreCols(A, J);
-    TMatrix V = RestoreRows(A, I);
-    TMatrix A_hat = maxvol(A, I, J);
+    TMatrix A = SparseMatrix(n,m, 0.5);
 
-    //std::cout << (A - (U * A_hat.Inverse() * V)).Norm_2();
-    //std::cout << A << "\n" << U * A_hat.Inverse() * V << "\n";
-    cout << I.size();
-    
+    size_t a, b, c;
+    cin >> a >> b >> c;
+
+    if (a * b * c != n * m) {
+        cout << "a * b * c != n * m\n";
+        return 0;
+    }
+
+    Core C(A, a,b,c);
+
+    for (size_t i = 0; i < a; i++) {
+        for (size_t j = 0; j < b; j++) {
+            for (size_t k = 0; k < c; k++) {
+                cout << C(i,j,k) << ' ';
+            }
+            cout << endl;
+        }
+        cout << endl;
+    }
 }

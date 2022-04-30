@@ -1,0 +1,27 @@
+[
+{
+  "directory": "/home/courage/MAI/diploma/TTCross/build",
+  "command": "/usr/bin/g++    -Wall -g   -std=gnu++2a -o CMakeFiles/main.dir/matrix.cpp.o -c /home/courage/MAI/diploma/TTCross/matrix.cpp",
+  "file": "/home/courage/MAI/diploma/TTCross/matrix.cpp"
+},
+{
+  "directory": "/home/courage/MAI/diploma/TTCross/build",
+  "command": "/usr/bin/g++    -Wall -g   -std=gnu++2a -o CMakeFiles/main.dir/main.cpp.o -c /home/courage/MAI/diploma/TTCross/main.cpp",
+  "file": "/home/courage/MAI/diploma/TTCross/main.cpp"
+},
+{
+  "directory": "/home/courage/MAI/diploma/TTCross/build",
+  "command": "/usr/bin/g++    -Wall -g   -std=gnu++2a -o CMakeFiles/main.dir/calculation.cpp.o -c /home/courage/MAI/diploma/TTCross/calculation.cpp",
+  "file": "/home/courage/MAI/diploma/TTCross/calculation.cpp"
+},
+{
+  "directory": "/home/courage/MAI/diploma/TTCross/build",
+  "command": "/usr/bin/g++    -Wall -g   -std=gnu++2a -o CMakeFiles/main.dir/skeleton.cpp.o -c /home/courage/MAI/diploma/TTCross/skeleton.cpp",
+  "file": "/home/courage/MAI/diploma/TTCross/skeleton.cpp"
+},
+{
+  "directory": "/home/courage/MAI/diploma/TTCross/build",
+  "command": "/usr/bin/g++    -Wall -g   -std=gnu++2a -o CMakeFiles/main.dir/core.cpp.o -c /home/courage/MAI/diploma/TTCross/core.cpp",
+  "file": "/home/courage/MAI/diploma/TTCross/core.cpp"
+}
+]

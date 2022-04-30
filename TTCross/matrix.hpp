@@ -7,6 +7,7 @@
 #include <iomanip>
 #include <cmath>
 #include <complex>
+#include <vector>
 
 using namespace std;
 

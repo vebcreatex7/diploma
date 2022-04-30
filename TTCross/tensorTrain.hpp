@@ -10,6 +10,6 @@ private:
 public:
     TensorTrain();
     const std::vector<Core>& Cores() const;
-    void TTCross(const Tensor& t, double eps);
+    void TTCross(ImplicitTensor t, double eps);
 };
 

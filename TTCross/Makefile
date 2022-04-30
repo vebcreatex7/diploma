@@ -150,6 +150,33 @@ calculation.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/calculation.cpp.s
 .PHONY : calculation.cpp.s
 
+core.o: core.cpp.o
+
+.PHONY : core.o
+
+# target to build an object file
+core.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/core.cpp.o
+.PHONY : core.cpp.o
+
+core.i: core.cpp.i
+
+.PHONY : core.i
+
+# target to preprocess a source file
+core.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/core.cpp.i
+.PHONY : core.cpp.i
+
+core.s: core.cpp.s
+
+.PHONY : core.s
+
+# target to generate assembly for a file
+core.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/core.cpp.s
+.PHONY : core.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -243,6 +270,9 @@ help:
 	@echo "... calculation.o"
 	@echo "... calculation.i"
 	@echo "... calculation.s"
+	@echo "... core.o"
+	@echo "... core.i"
+	@echo "... core.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

@@ -1,22 +1,16 @@
 #include "tensor.hpp"
 #include "matrix.hpp"
 
-class UnfoldingMatrix : public Tensor {
+class UnfoldingMatrix {
 private:
     size_t n_, m_;
-    size_t k_;
-    std::vector<std::vector<size_t>>  I;
-
-    std::vector<size_t> row(size_t p);
-    std::vector<size_t> col(size_t p);
+    const ImplicitTensor& t_;
 
 public:
-    UnfoldingMatrix(const Tensor& t);
+    UnfoldingMatrix(const ImplicitTensor& t, size_t n, size_t m);
     UnfoldingMatrix(const UnfoldingMatrix& t);
-    UnfoldingMatrix Reshape(size_t n, size_t m);
-    UnfoldingMatrix Compress(const std::vector<size_t>& I);
-    TMatrix ExplicitRows(const std::vector<size_t>& I);
-    TMatrix ExplicitCols(const std::vector<size_t>& J);
-    TMatrix ExplicitMaxvol(const std::vector<size_t>& I, const std::vector<size_t>& J);
-    double Get(size_t i, size_t j) const;
+    TMatrix ExplicitRows(const std::vector<size_t>& I) const;
+    TMatrix ExplicitCols(const std::vector<size_t>& J) const;
+    TMatrix ExplicitMaxvol(const std::vector<size_t>& I, const std::vector<size_t>& J) const;
+    double operator() (size_t i, size_t j) const;
 };

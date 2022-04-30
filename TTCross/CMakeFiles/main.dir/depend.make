@@ -5,10 +5,17 @@ CMakeFiles/main.dir/calculation.cpp.o: calculation.cpp
 CMakeFiles/main.dir/calculation.cpp.o: calculation.hpp
 CMakeFiles/main.dir/calculation.cpp.o: matrix.hpp
 
+CMakeFiles/main.dir/core.cpp.o: core.cpp
+CMakeFiles/main.dir/core.cpp.o: core.hpp
+CMakeFiles/main.dir/core.cpp.o: matrix.hpp
+
 CMakeFiles/main.dir/main.cpp.o: calculation.hpp
+CMakeFiles/main.dir/main.cpp.o: core.hpp
 CMakeFiles/main.dir/main.cpp.o: main.cpp
 CMakeFiles/main.dir/main.cpp.o: matrix.hpp
 CMakeFiles/main.dir/main.cpp.o: skeleton.hpp
+CMakeFiles/main.dir/main.cpp.o: tensor.hpp
+CMakeFiles/main.dir/main.cpp.o: unfoldingMatrix.hpp
 
 CMakeFiles/main.dir/matrix.cpp.o: calculation.hpp
 CMakeFiles/main.dir/matrix.cpp.o: matrix.cpp
@@ -18,4 +25,6 @@ CMakeFiles/main.dir/skeleton.cpp.o: calculation.hpp
 CMakeFiles/main.dir/skeleton.cpp.o: matrix.hpp
 CMakeFiles/main.dir/skeleton.cpp.o: skeleton.cpp
 CMakeFiles/main.dir/skeleton.cpp.o: skeleton.hpp
+CMakeFiles/main.dir/skeleton.cpp.o: tensor.hpp
+CMakeFiles/main.dir/skeleton.cpp.o: unfoldingMatrix.hpp
 
