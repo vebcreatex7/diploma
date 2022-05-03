@@ -58,7 +58,7 @@ public:
     TMatrix rightSubmatrix(vector<int>const &J) const;
     TMatrix submatrix(vector<int> const &I, vector<int> const &J) const;
 
-
+    void print() const;
 
 };
 

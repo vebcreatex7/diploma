@@ -1,3 +1,7 @@
+#ifndef IMPLICIT_TENSOR_H
+#define IMPLICIT_TENSOR_H
+
+
 #include <vector>
 #include <functional>
 #include <numeric>
@@ -14,7 +18,7 @@ private:
     std::vector<size_t> unfoldColIdx(size_t p) const;
 
 public:
-    ImplicitTensor(size_t d, const std::vector<size_t>& n, const std::function<double(const std::vector<size_t> &)> f);
+    ImplicitTensor(size_t d, const std::vector<size_t>& n, std::function<double(const std::vector<size_t> &)> f);
     double operator()(size_t i, size_t j) const;
     size_t Dimension() const;
     const std::vector<size_t>&  Sizes() const;
@@ -23,3 +27,4 @@ public:
 };
 
 
+#endif

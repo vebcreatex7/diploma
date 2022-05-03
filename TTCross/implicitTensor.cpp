@@ -1,6 +1,6 @@
-#include "tensor.hpp"
+#include "implicitTensor.hpp"
 
-ImplicitTensor::ImplicitTensor(size_t d, const std::vector<size_t>& s, const std::function<double(const std::vector<size_t> &)> f) :
+ImplicitTensor::ImplicitTensor(size_t d, const std::vector<size_t>& s, std::function<double(const std::vector<size_t> &)> f) :
     d_(d), s_(s), f_(f) {
         leftNestedSequence_.push_back(std::vector<size_t>());
         k_ = 0;
@@ -26,8 +26,8 @@ double ImplicitTensor::operator()(size_t i, size_t j) const {
 void ImplicitTensor::Reshape(const std::vector<size_t>& I) {
     std::vector<std::vector<size_t>> newLeftNestedSequence(I.size());
 
-    for (int i = 0; i < I.size(); i++) {
-        newLeftNestedSequence.push_back(unfoldRowIdx(I[i]));
+    for (size_t i = 0; i < I.size(); i++) {
+        newLeftNestedSequence[i] = unfoldRowIdx(I[i]);
     }
 
     k_++;
@@ -42,17 +42,19 @@ std::vector<size_t> ImplicitTensor::unfoldRowIdx(size_t p) const {
 }
 
 std::vector<size_t> ImplicitTensor::unfoldColIdx(size_t p) const {
-    int n = d_ - k_ + 1;
+    int n = d_ - (k_ + 1);
 
     std::vector<size_t> idxs(n);
 
-    size_t product = std::accumulate(s_.begin(), s_.end(), 1, std::multiplies<size_t>());
+    size_t product = std::accumulate(s_.begin() + k_ + 1, s_.end(), 1, std::multiplies<size_t>());
 
-    for (int i = k_ + 1, j = 0; i < d_; i++, j++) {
-        product /= s_[i];
+    for (size_t i = k_ + 1, j = 0; i < d_-1; i++, j++) {
         idxs[j] = p / product;
         p %= product;
+        product /= s_[i];
     }
+
+    idxs[n-1] = p;
 
     return idxs;
 }

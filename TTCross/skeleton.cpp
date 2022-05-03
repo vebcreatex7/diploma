@@ -60,3 +60,16 @@ tuple<vector<int>, vector<int>> Skeleton(TMatrix A, double eps) {
 
     return make_tuple(IMax, JMax);
 }
+
+tuple<vector<size_t>, vector<size_t>> Skeleton(UnfoldingMatrix A, double eps) {
+    size_t s = min(A.N(), A.M());
+
+    vector<size_t> I(s/2), J(s/2);
+
+    for (size_t i = 0; i < s/2; i++) {
+        I[i] = 2*i;
+        J[i] = 2*i + 1;
+    }
+
+    return make_tuple(I,J);
+}

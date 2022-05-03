@@ -1,27 +1,42 @@
 [
 {
   "directory": "/home/courage/MAI/diploma/TTCross/build",
-  "command": "/usr/bin/g++    -Wall -g   -std=gnu++2a -o CMakeFiles/main.dir/matrix.cpp.o -c /home/courage/MAI/diploma/TTCross/matrix.cpp",
-  "file": "/home/courage/MAI/diploma/TTCross/matrix.cpp"
-},
-{
-  "directory": "/home/courage/MAI/diploma/TTCross/build",
-  "command": "/usr/bin/g++    -Wall -g   -std=gnu++2a -o CMakeFiles/main.dir/main.cpp.o -c /home/courage/MAI/diploma/TTCross/main.cpp",
+  "command": "/usr/bin/g++    -Wall -ggdb -g   -std=gnu++2a -o CMakeFiles/main.dir/main.cpp.o -c /home/courage/MAI/diploma/TTCross/main.cpp",
   "file": "/home/courage/MAI/diploma/TTCross/main.cpp"
 },
 {
   "directory": "/home/courage/MAI/diploma/TTCross/build",
-  "command": "/usr/bin/g++    -Wall -g   -std=gnu++2a -o CMakeFiles/main.dir/calculation.cpp.o -c /home/courage/MAI/diploma/TTCross/calculation.cpp",
+  "command": "/usr/bin/g++    -Wall -ggdb -g   -std=gnu++2a -o CMakeFiles/main.dir/matrix.cpp.o -c /home/courage/MAI/diploma/TTCross/matrix.cpp",
+  "file": "/home/courage/MAI/diploma/TTCross/matrix.cpp"
+},
+{
+  "directory": "/home/courage/MAI/diploma/TTCross/build",
+  "command": "/usr/bin/g++    -Wall -ggdb -g   -std=gnu++2a -o CMakeFiles/main.dir/calculation.cpp.o -c /home/courage/MAI/diploma/TTCross/calculation.cpp",
   "file": "/home/courage/MAI/diploma/TTCross/calculation.cpp"
 },
 {
   "directory": "/home/courage/MAI/diploma/TTCross/build",
-  "command": "/usr/bin/g++    -Wall -g   -std=gnu++2a -o CMakeFiles/main.dir/skeleton.cpp.o -c /home/courage/MAI/diploma/TTCross/skeleton.cpp",
+  "command": "/usr/bin/g++    -Wall -ggdb -g   -std=gnu++2a -o CMakeFiles/main.dir/skeleton.cpp.o -c /home/courage/MAI/diploma/TTCross/skeleton.cpp",
   "file": "/home/courage/MAI/diploma/TTCross/skeleton.cpp"
 },
 {
   "directory": "/home/courage/MAI/diploma/TTCross/build",
-  "command": "/usr/bin/g++    -Wall -g   -std=gnu++2a -o CMakeFiles/main.dir/core.cpp.o -c /home/courage/MAI/diploma/TTCross/core.cpp",
+  "command": "/usr/bin/g++    -Wall -ggdb -g   -std=gnu++2a -o CMakeFiles/main.dir/core.cpp.o -c /home/courage/MAI/diploma/TTCross/core.cpp",
   "file": "/home/courage/MAI/diploma/TTCross/core.cpp"
+},
+{
+  "directory": "/home/courage/MAI/diploma/TTCross/build",
+  "command": "/usr/bin/g++    -Wall -ggdb -g   -std=gnu++2a -o CMakeFiles/main.dir/tensorTrain.cpp.o -c /home/courage/MAI/diploma/TTCross/tensorTrain.cpp",
+  "file": "/home/courage/MAI/diploma/TTCross/tensorTrain.cpp"
+},
+{
+  "directory": "/home/courage/MAI/diploma/TTCross/build",
+  "command": "/usr/bin/g++    -Wall -ggdb -g   -std=gnu++2a -o CMakeFiles/main.dir/implicitTensor.cpp.o -c /home/courage/MAI/diploma/TTCross/implicitTensor.cpp",
+  "file": "/home/courage/MAI/diploma/TTCross/implicitTensor.cpp"
+},
+{
+  "directory": "/home/courage/MAI/diploma/TTCross/build",
+  "command": "/usr/bin/g++    -Wall -ggdb -g   -std=gnu++2a -o CMakeFiles/main.dir/unfoldingMatrix.cpp.o -c /home/courage/MAI/diploma/TTCross/unfoldingMatrix.cpp",
+  "file": "/home/courage/MAI/diploma/TTCross/unfoldingMatrix.cpp"
 }
 ]

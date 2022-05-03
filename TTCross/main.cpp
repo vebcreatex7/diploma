@@ -1,7 +1,5 @@
-#include "calculation.hpp"
-#include "matrix.hpp"
-#include "skeleton.hpp"
-#include "core.hpp"
+
+#include "tensorTrain.hpp"
 #include <random>
 #include <vector>
 
@@ -61,29 +59,23 @@ TMatrix maxvol(TMatrix& a, vector<int>& I, vector<int>& J){
     return res;
 }
 
+double f(const std::vector<size_t> &idxs) {
+    return sin(std::accumulate(idxs.begin(), idxs.end(), (size_t)0));
+}
+
 int main() {
-    size_t n, m;
-    cin >> n >> m;
+    size_t d = 5;
+    std::vector<size_t> s{4,4,4,4,4};
+    ImplicitTensor t = ImplicitTensor(d, s, f);
 
-    TMatrix A = SparseMatrix(n,m, 0.5);
+    TensorTrain tt;
 
-    size_t a, b, c;
-    cin >> a >> b >> c;
+    tt.TTCross(t, 0.1);
+    std::vector<Core> cores = tt.Cores();
 
-    if (a * b * c != n * m) {
-        cout << "a * b * c != n * m\n";
-        return 0;
+    for (auto& core : cores) {
+        std::cout << core << std::endl;
+        std::cout << "======================\n\n";
     }
 
-    Core C(A, a,b,c);
-
-    for (size_t i = 0; i < a; i++) {
-        for (size_t j = 0; j < b; j++) {
-            for (size_t k = 0; k < c; k++) {
-                cout << C(i,j,k) << ' ';
-            }
-            cout << endl;
-        }
-        cout << endl;
-    }
 }

@@ -1,3 +1,6 @@
+#ifndef SKELETON_H
+#define SKELETON_H
+
 #include "matrix.hpp"
 #include "calculation.hpp"
 #include "unfoldingMatrix.hpp"
@@ -6,3 +9,5 @@ using namespace std;
 
 tuple<vector<int>, vector<int>> Skeleton(TMatrix A, double eps);
 tuple<vector<size_t>, vector<size_t>> Skeleton(UnfoldingMatrix A, double eps);
+
+#endif

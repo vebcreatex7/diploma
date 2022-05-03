@@ -1,15 +1,25 @@
-#include <numeric>
-
 #include "unfoldingMatrix.hpp"
-#include "tensor.hpp"
 
 
-UnfoldingMatrix::UnfoldingMatrix(const ImplicitTensor& t, size_t n, size_t m) :
-    n_(n), m_(m), t_(t) {}
+UnfoldingMatrix::UnfoldingMatrix() {
+    n_ = m_ = 0;
+    t_ = nullptr;
+}
+
+UnfoldingMatrix::UnfoldingMatrix(ImplicitTensor& t, size_t n, size_t m) :
+    n_(n), m_(m), t_(&t) {}
 
 
 double UnfoldingMatrix::operator()(size_t i, size_t j) const {
-    return t_(i,j);
+    return t_->operator()(i,j);
+}
+
+UnfoldingMatrix& UnfoldingMatrix::operator= (const UnfoldingMatrix& other) {
+    n_ = other.n_;
+    m_ = other.m_;
+    t_ = other.t_;
+
+    return *this;
 }
 
 TMatrix UnfoldingMatrix::ExplicitRows(const std::vector<size_t>& I) const {
@@ -18,7 +28,7 @@ TMatrix UnfoldingMatrix::ExplicitRows(const std::vector<size_t>& I) const {
 
     for (size_t i = 0; i < n; i++) {
         for (size_t j = 0; j < m_; j++) {
-            res[i][j] = t_(I[i],j);
+            res[i][j] = t_->operator()(I[i],j);
         }
     }
 
@@ -30,8 +40,8 @@ TMatrix UnfoldingMatrix::ExplicitCols(const std::vector<size_t>& J) const {
     TMatrix res(n_,m,0.);
 
     for (size_t i = 0; i < n_; i++) {
-        for (int j = 0; j < m; j++) {
-            res[i][j] = t_(i, J[j]);
+        for (size_t j = 0; j < m; j++) {
+            res[i][j] = t_->operator()(i, J[j]);
         }
     }
 
@@ -45,7 +55,7 @@ TMatrix UnfoldingMatrix::ExplicitMaxvol(const std::vector<size_t>& I, const std:
 
     for (size_t i = 0; i < n; i++) {
         for (size_t j = 0; j < m; j++) {
-            res[i][j] = t_(I[i], J[j]);
+            res[i][j] = t_->operator()(I[i], J[j]);
         }
     }
 

@@ -245,6 +245,9 @@ long double TMatrix::Determinant() const {
 
 
 TMatrix TMatrix::Inverse() const {
+    if (rows_ == 1) {
+        return TMatrix(1,1, 1. / data_[0][0]);
+    }
     auto [L, U, P] = this->LUdecomposition();
     return LU_Inverse_Matrix(L, U, P);
 }
@@ -376,4 +379,8 @@ TMatrix TMatrix::submatrix(vector<int> const &I, vector<int> const &J) const {
             res[i][j] = this->data_[I[i]][J[j]];
 
     return res;
+}
+
+void TMatrix::print() const {
+    std::cout << *this;
 }

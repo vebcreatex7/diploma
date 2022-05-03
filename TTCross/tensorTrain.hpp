@@ -1,5 +1,12 @@
+#ifndef TENSOR_TRAIN_H
+#define TENSOR_TRAIN_H
+
 #include <vector>
-#include "tensor.hpp"
+#include<numeric>
+
+#include "implicitTensor.hpp"
+#include "unfoldingMatrix.hpp"
+#include "skeleton.hpp"
 #include "core.hpp"
 
 class TensorTrain {
@@ -8,8 +15,8 @@ private:
     std::vector<size_t> ttRanks;
 
 public:
-    TensorTrain();
     const std::vector<Core>& Cores() const;
     void TTCross(ImplicitTensor t, double eps);
 };
 
+#endif
