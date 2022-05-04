@@ -384,3 +384,7 @@ TMatrix TMatrix::submatrix(vector<int> const &I, vector<int> const &J) const {
 void TMatrix::print() const {
     std::cout << *this;
 }
+
+double TMatrix::f(const std::vector<size_t> &idxs) {
+    return this->data_[idxs[0]][idxs[1]];
+}

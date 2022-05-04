@@ -46,3 +46,19 @@ void TensorTrain::TTCross(ImplicitTensor t, double eps) {
 const std::vector<Core>& TensorTrain::Cores() const {
     return cores;
 }
+
+std::vector<size_t> TensorTrain::TTRanks() const {
+    return ttRanks;
+}
+
+double TensorTrain::operator()(const std::vector<size_t>& idxs) const {
+    TMatrix res = cores[0](idxs[0]);
+
+    for (size_t i = 1; i < idxs.size(); i++) {
+        TMatrix tmp = cores[i](idxs[i]);
+        
+        res = res * tmp;
+    }
+
+    return res[0][0];
+}

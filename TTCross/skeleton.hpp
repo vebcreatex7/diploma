@@ -8,6 +8,6 @@
 using namespace std;
 
 tuple<vector<int>, vector<int>> Skeleton(TMatrix A, double eps);
-tuple<vector<size_t>, vector<size_t>> Skeleton(UnfoldingMatrix A, double eps);
+std::pair<std::vector<size_t>, std::vector<size_t>> Skeleton(UnfoldingMatrix A, double eps);
 
 #endif

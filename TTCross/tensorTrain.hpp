@@ -16,7 +16,9 @@ private:
 
 public:
     const std::vector<Core>& Cores() const;
+    std::vector<size_t> TTRanks() const;
     void TTCross(ImplicitTensor t, double eps);
+    double operator()(const std::vector<size_t>& idxs) const;
 };
 
 #endif

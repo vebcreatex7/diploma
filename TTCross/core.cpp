@@ -54,6 +54,17 @@ Core& Core::operator= (const Core& other) {
     return *this;
 }
 
+TMatrix& Core::operator()(size_t j) const {
+    TMatrix res(a_, c_, 0.);
+
+    for (size_t i = 0; i < a_; i++) {
+        for (size_t k = 0; k < c_; k++) {
+            res[i][k] = this->operator()(i,j,k);
+        }
+    }
+
+    return res;
+}
 
 std::ostream& operator<< (std::ostream& out, const Core& c) {
     out << std::setprecision(5) << std::fixed;

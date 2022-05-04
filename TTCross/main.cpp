@@ -5,6 +5,8 @@
 
 using namespace std;
 
+double density = 0.05;
+
 
 TMatrix SparseMatrix(int n, int m, double density) {
     TMatrix res(n,m,0.);
@@ -60,22 +62,33 @@ TMatrix maxvol(TMatrix& a, vector<int>& I, vector<int>& J){
 }
 
 double f(const std::vector<size_t> &idxs) {
-    return sin(std::accumulate(idxs.begin(), idxs.end(), (size_t)0));
+    return  sin(std::accumulate(idxs.begin(), idxs.end(), (size_t)0));
 }
 
 int main() {
-    size_t d = 5;
-    std::vector<size_t> s{4,4,4,4,4};
-    ImplicitTensor t = ImplicitTensor(d, s, f);
+    srand(time(NULL));
+    size_t d = 2;
+    size_t n = 50, m = 50;
+    double eps = 0.1;
+    TMatrix A = SparseMatrix(n,m, 0.01);
+
+    std::vector<size_t> s{n,m};
+
+    auto fp = std::bind(&TMatrix::f, A, std::placeholders::_1);
+    ImplicitTensor t = ImplicitTensor(d, s, fp);
 
     TensorTrain tt;
 
-    tt.TTCross(t, 0.1);
+    tt.TTCross(t, eps);
     std::vector<Core> cores = tt.Cores();
 
-    for (auto& core : cores) {
-        std::cout << core << std::endl;
-        std::cout << "======================\n\n";
+    std::vector<size_t> ttRanks = tt.TTRanks();
+    for (auto a : ttRanks) {
+        std::cout << a << ' ';
     }
+    std::cout << std::endl;
+
+    auto [I, J] = Skeleton(A, eps);
+    std::cout << I.size() << std::endl;
 
 }

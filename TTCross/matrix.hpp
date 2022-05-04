@@ -59,6 +59,7 @@ public:
     TMatrix submatrix(vector<int> const &I, vector<int> const &J) const;
 
     void print() const;
+    double f(const std::vector<size_t> &idxs);
 
 };
 
