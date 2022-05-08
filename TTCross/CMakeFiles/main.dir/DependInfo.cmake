@@ -6,12 +6,13 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/courage/MAI/diploma/TTCross/calculation.cpp" "/home/courage/MAI/diploma/TTCross/CMakeFiles/main.dir/calculation.cpp.o"
   "/home/courage/MAI/diploma/TTCross/core.cpp" "/home/courage/MAI/diploma/TTCross/CMakeFiles/main.dir/core.cpp.o"
-  "/home/courage/MAI/diploma/TTCross/implicitTensor.cpp" "/home/courage/MAI/diploma/TTCross/CMakeFiles/main.dir/implicitTensor.cpp.o"
+  "/home/courage/MAI/diploma/TTCross/implicit_tensor.cpp" "/home/courage/MAI/diploma/TTCross/CMakeFiles/main.dir/implicit_tensor.cpp.o"
   "/home/courage/MAI/diploma/TTCross/main.cpp" "/home/courage/MAI/diploma/TTCross/CMakeFiles/main.dir/main.cpp.o"
   "/home/courage/MAI/diploma/TTCross/matrix.cpp" "/home/courage/MAI/diploma/TTCross/CMakeFiles/main.dir/matrix.cpp.o"
   "/home/courage/MAI/diploma/TTCross/skeleton.cpp" "/home/courage/MAI/diploma/TTCross/CMakeFiles/main.dir/skeleton.cpp.o"
-  "/home/courage/MAI/diploma/TTCross/tensorTrain.cpp" "/home/courage/MAI/diploma/TTCross/CMakeFiles/main.dir/tensorTrain.cpp.o"
-  "/home/courage/MAI/diploma/TTCross/unfoldingMatrix.cpp" "/home/courage/MAI/diploma/TTCross/CMakeFiles/main.dir/unfoldingMatrix.cpp.o"
+  "/home/courage/MAI/diploma/TTCross/tensor.cpp" "/home/courage/MAI/diploma/TTCross/CMakeFiles/main.dir/tensor.cpp.o"
+  "/home/courage/MAI/diploma/TTCross/tensor_train.cpp" "/home/courage/MAI/diploma/TTCross/CMakeFiles/main.dir/tensor_train.cpp.o"
+  "/home/courage/MAI/diploma/TTCross/unfolding_matrix.cpp" "/home/courage/MAI/diploma/TTCross/CMakeFiles/main.dir/unfolding_matrix.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

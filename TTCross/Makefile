@@ -177,32 +177,32 @@ core.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/core.cpp.s
 .PHONY : core.cpp.s
 
-implicitTensor.o: implicitTensor.cpp.o
+implicit_tensor.o: implicit_tensor.cpp.o
 
-.PHONY : implicitTensor.o
+.PHONY : implicit_tensor.o
 
 # target to build an object file
-implicitTensor.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/implicitTensor.cpp.o
-.PHONY : implicitTensor.cpp.o
+implicit_tensor.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/implicit_tensor.cpp.o
+.PHONY : implicit_tensor.cpp.o
 
-implicitTensor.i: implicitTensor.cpp.i
+implicit_tensor.i: implicit_tensor.cpp.i
 
-.PHONY : implicitTensor.i
+.PHONY : implicit_tensor.i
 
 # target to preprocess a source file
-implicitTensor.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/implicitTensor.cpp.i
-.PHONY : implicitTensor.cpp.i
+implicit_tensor.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/implicit_tensor.cpp.i
+.PHONY : implicit_tensor.cpp.i
 
-implicitTensor.s: implicitTensor.cpp.s
+implicit_tensor.s: implicit_tensor.cpp.s
 
-.PHONY : implicitTensor.s
+.PHONY : implicit_tensor.s
 
 # target to generate assembly for a file
-implicitTensor.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/implicitTensor.cpp.s
-.PHONY : implicitTensor.cpp.s
+implicit_tensor.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/implicit_tensor.cpp.s
+.PHONY : implicit_tensor.cpp.s
 
 main.o: main.cpp.o
 
@@ -285,59 +285,86 @@ skeleton.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/skeleton.cpp.s
 .PHONY : skeleton.cpp.s
 
-tensorTrain.o: tensorTrain.cpp.o
+tensor.o: tensor.cpp.o
 
-.PHONY : tensorTrain.o
-
-# target to build an object file
-tensorTrain.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/tensorTrain.cpp.o
-.PHONY : tensorTrain.cpp.o
-
-tensorTrain.i: tensorTrain.cpp.i
-
-.PHONY : tensorTrain.i
-
-# target to preprocess a source file
-tensorTrain.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/tensorTrain.cpp.i
-.PHONY : tensorTrain.cpp.i
-
-tensorTrain.s: tensorTrain.cpp.s
-
-.PHONY : tensorTrain.s
-
-# target to generate assembly for a file
-tensorTrain.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/tensorTrain.cpp.s
-.PHONY : tensorTrain.cpp.s
-
-unfoldingMatrix.o: unfoldingMatrix.cpp.o
-
-.PHONY : unfoldingMatrix.o
+.PHONY : tensor.o
 
 # target to build an object file
-unfoldingMatrix.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/unfoldingMatrix.cpp.o
-.PHONY : unfoldingMatrix.cpp.o
+tensor.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/tensor.cpp.o
+.PHONY : tensor.cpp.o
 
-unfoldingMatrix.i: unfoldingMatrix.cpp.i
+tensor.i: tensor.cpp.i
 
-.PHONY : unfoldingMatrix.i
+.PHONY : tensor.i
 
 # target to preprocess a source file
-unfoldingMatrix.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/unfoldingMatrix.cpp.i
-.PHONY : unfoldingMatrix.cpp.i
+tensor.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/tensor.cpp.i
+.PHONY : tensor.cpp.i
 
-unfoldingMatrix.s: unfoldingMatrix.cpp.s
+tensor.s: tensor.cpp.s
 
-.PHONY : unfoldingMatrix.s
+.PHONY : tensor.s
 
 # target to generate assembly for a file
-unfoldingMatrix.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/unfoldingMatrix.cpp.s
-.PHONY : unfoldingMatrix.cpp.s
+tensor.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/tensor.cpp.s
+.PHONY : tensor.cpp.s
+
+tensor_train.o: tensor_train.cpp.o
+
+.PHONY : tensor_train.o
+
+# target to build an object file
+tensor_train.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/tensor_train.cpp.o
+.PHONY : tensor_train.cpp.o
+
+tensor_train.i: tensor_train.cpp.i
+
+.PHONY : tensor_train.i
+
+# target to preprocess a source file
+tensor_train.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/tensor_train.cpp.i
+.PHONY : tensor_train.cpp.i
+
+tensor_train.s: tensor_train.cpp.s
+
+.PHONY : tensor_train.s
+
+# target to generate assembly for a file
+tensor_train.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/tensor_train.cpp.s
+.PHONY : tensor_train.cpp.s
+
+unfolding_matrix.o: unfolding_matrix.cpp.o
+
+.PHONY : unfolding_matrix.o
+
+# target to build an object file
+unfolding_matrix.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/unfolding_matrix.cpp.o
+.PHONY : unfolding_matrix.cpp.o
+
+unfolding_matrix.i: unfolding_matrix.cpp.i
+
+.PHONY : unfolding_matrix.i
+
+# target to preprocess a source file
+unfolding_matrix.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/unfolding_matrix.cpp.i
+.PHONY : unfolding_matrix.cpp.i
+
+unfolding_matrix.s: unfolding_matrix.cpp.s
+
+.PHONY : unfolding_matrix.s
+
+# target to generate assembly for a file
+unfolding_matrix.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/unfolding_matrix.cpp.s
+.PHONY : unfolding_matrix.cpp.s
 
 # Help Target
 help:
@@ -354,9 +381,9 @@ help:
 	@echo "... core.o"
 	@echo "... core.i"
 	@echo "... core.s"
-	@echo "... implicitTensor.o"
-	@echo "... implicitTensor.i"
-	@echo "... implicitTensor.s"
+	@echo "... implicit_tensor.o"
+	@echo "... implicit_tensor.i"
+	@echo "... implicit_tensor.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
@@ -366,12 +393,15 @@ help:
 	@echo "... skeleton.o"
 	@echo "... skeleton.i"
 	@echo "... skeleton.s"
-	@echo "... tensorTrain.o"
-	@echo "... tensorTrain.i"
-	@echo "... tensorTrain.s"
-	@echo "... unfoldingMatrix.o"
-	@echo "... unfoldingMatrix.i"
-	@echo "... unfoldingMatrix.s"
+	@echo "... tensor.o"
+	@echo "... tensor.i"
+	@echo "... tensor.s"
+	@echo "... tensor_train.o"
+	@echo "... tensor_train.i"
+	@echo "... tensor_train.s"
+	@echo "... unfolding_matrix.o"
+	@echo "... unfolding_matrix.i"
+	@echo "... unfolding_matrix.s"
 .PHONY : help
 
 

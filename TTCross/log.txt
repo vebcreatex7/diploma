@@ -1,0 +1,23 @@
+sizes = 10 10 10 10 10 10
+max = 10
+density = 0.0001
+ttRanks = 1 10 64 87 64 10 1 
+explicit count = 95
+tt count = 95
+explicit norm = 54.3369
+tt norm = 54.3369
+delta norm = 5.25284e-30
+max diff = 8.88178e-16
+size = 124360
+
+
+sizes = 10 10 10 10 10 10
+max = 1
+density = 0.001
+ttRanks = 1 10 50 50 50 10 1 
+explicit count = 967
+tt count = 115
+explicit norm = 17.9619
+tt norm = 8.2679
+delta norm = 16.0386
+max diff = 0.945444

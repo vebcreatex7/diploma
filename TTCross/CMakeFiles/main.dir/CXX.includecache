@@ -20,7 +20,7 @@ iomanip
 matrix.hpp
 /home/courage/MAI/diploma/TTCross/matrix.hpp
 
-/home/courage/MAI/diploma/TTCross/implicitTensor.hpp
+/home/courage/MAI/diploma/TTCross/implicit_tensor.hpp
 vector
 -
 functional
@@ -29,12 +29,18 @@ numeric
 -
 
 /home/courage/MAI/diploma/TTCross/main.cpp
-tensorTrain.hpp
-/home/courage/MAI/diploma/TTCross/tensorTrain.hpp
 random
 -
 vector
 -
+limits
+-
+ctime
+-
+tensor_train.hpp
+/home/courage/MAI/diploma/TTCross/tensor_train.hpp
+tensor.hpp
+/home/courage/MAI/diploma/TTCross/tensor.hpp
 
 /home/courage/MAI/diploma/TTCross/matrix.hpp
 iostream
@@ -61,30 +67,34 @@ matrix.hpp
 /home/courage/MAI/diploma/TTCross/matrix.hpp
 calculation.hpp
 /home/courage/MAI/diploma/TTCross/calculation.hpp
-unfoldingMatrix.hpp
-/home/courage/MAI/diploma/TTCross/unfoldingMatrix.hpp
+unfolding_matrix.hpp
+/home/courage/MAI/diploma/TTCross/unfolding_matrix.hpp
 bits/stdc++.h
 -
 
-/home/courage/MAI/diploma/TTCross/tensorTrain.hpp
+/home/courage/MAI/diploma/TTCross/tensor.hpp
+vector
+-
+
+/home/courage/MAI/diploma/TTCross/tensor_train.hpp
 vector
 -
 numeric
 -
-implicitTensor.hpp
-/home/courage/MAI/diploma/TTCross/implicitTensor.hpp
-unfoldingMatrix.hpp
-/home/courage/MAI/diploma/TTCross/unfoldingMatrix.hpp
+implicit_tensor.hpp
+/home/courage/MAI/diploma/TTCross/implicit_tensor.hpp
+unfolding_matrix.hpp
+/home/courage/MAI/diploma/TTCross/unfolding_matrix.hpp
 skeleton.hpp
 /home/courage/MAI/diploma/TTCross/skeleton.hpp
 core.hpp
 /home/courage/MAI/diploma/TTCross/core.hpp
 
-/home/courage/MAI/diploma/TTCross/unfoldingMatrix.hpp
+/home/courage/MAI/diploma/TTCross/unfolding_matrix.hpp
 numeric
 -
-implicitTensor.hpp
-/home/courage/MAI/diploma/TTCross/implicitTensor.hpp
+implicit_tensor.hpp
+/home/courage/MAI/diploma/TTCross/implicit_tensor.hpp
 matrix.hpp
 /home/courage/MAI/diploma/TTCross/matrix.hpp
 

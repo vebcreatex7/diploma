@@ -3,7 +3,7 @@
 
 #include <numeric>
 
-#include "implicitTensor.hpp"
+#include "implicit_tensor.hpp"
 #include "matrix.hpp"
 
 
@@ -15,13 +15,21 @@ private:
 public:
     UnfoldingMatrix();
     UnfoldingMatrix(ImplicitTensor& t, size_t n, size_t m);
+
     size_t N() const {return n_;}
     size_t M() const {return m_;}
     TMatrix ExplicitRows(const std::vector<size_t>& I) const;
     TMatrix ExplicitCols(const std::vector<size_t>& J) const;
-    TMatrix ExplicitMaxvol(const std::vector<size_t>& I, const std::vector<size_t>& J) const;
+    TMatrix ExplicitMaxvol(const std::vector<size_t>& I,const std::vector<size_t>& J) const;
+    void print() const;
+
     double operator() (size_t i, size_t j) const;
     UnfoldingMatrix& operator= (const UnfoldingMatrix& other);
+
+    friend std::ostream& operator<< (std::ostream& os, const UnfoldingMatrix& m);
+
+
+
 };
 
 #endif

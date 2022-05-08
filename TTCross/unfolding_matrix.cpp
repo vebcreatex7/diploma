@@ -1,4 +1,4 @@
-#include "unfoldingMatrix.hpp"
+#include "unfolding_matrix.hpp"
 
 
 UnfoldingMatrix::UnfoldingMatrix() {
@@ -48,16 +48,32 @@ TMatrix UnfoldingMatrix::ExplicitCols(const std::vector<size_t>& J) const {
     return res;
 }
 
-TMatrix UnfoldingMatrix::ExplicitMaxvol(const std::vector<size_t>& I, const std::vector<size_t>& J) const {
+TMatrix UnfoldingMatrix::ExplicitMaxvol(const std::vector<size_t>& I,const std::vector<size_t>& J) const {
     size_t n = I.size();
-    size_t m = J.size();
-    TMatrix res(n,m,0.);
+    TMatrix res(n,n,0.);
 
     for (size_t i = 0; i < n; i++) {
-        for (size_t j = 0; j < m; j++) {
-            res[i][j] = t_->operator()(I[i], J[j]);
+        for (size_t j = 0; j < n; j++) {
+            res[i][j] = t_->operator()(I[i],J[j]);
         }
     }
 
     return res;
 }
+
+void UnfoldingMatrix::print() const {
+    std::cout << *this;
+}
+
+std::ostream& operator<< (std::ostream& os, const UnfoldingMatrix& A) {
+    os << std::setprecision(5) << std::fixed;
+    for (size_t i = 0; i < A.n_; i++) {
+        for (size_t j = 0; j < A.m_; j++) {
+            os << A(i,j) << ' ';
+        }
+        os << std::endl;
+    }
+
+    return os;
+}
+

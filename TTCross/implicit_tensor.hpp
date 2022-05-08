@@ -23,7 +23,7 @@ public:
     size_t Dimension() const;
     const std::vector<size_t>&  Sizes() const;
 
-    void Reshape(const std::vector<size_t>& I);
+    void Reshape(std::vector<size_t> I);
 };
 
 

@@ -54,7 +54,7 @@ Core& Core::operator= (const Core& other) {
     return *this;
 }
 
-TMatrix& Core::operator()(size_t j) const {
+TMatrix Core::operator()(size_t j) const {
     TMatrix res(a_, c_, 0.);
 
     for (size_t i = 0; i < a_; i++) {

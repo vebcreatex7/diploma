@@ -1,11 +1,13 @@
-
-#include "tensorTrain.hpp"
 #include <random>
 #include <vector>
+#include <limits>
+#include <ctime>
+
+#include "tensor_train.hpp"
+#include "tensor.hpp"
+
 
 using namespace std;
-
-double density = 0.05;
 
 
 TMatrix SparseMatrix(int n, int m, double density) {
@@ -21,74 +23,53 @@ TMatrix SparseMatrix(int n, int m, double density) {
     return res;
 }
 
-TMatrix RestoreRows(TMatrix& a, vector<int>& I) {
-    int m = a.Get_Cols();
-    int r = I.size();
+int main() {  
+    std::vector<size_t> sizes{10,10,10,10};
 
-    TMatrix res(r,m,0.);
+    Tensor expTensor(sizes.size(), sizes);
+    expTensor.FillSparse(1, 1);
 
-    for (int i = 0; i < r; i++) {
-        for (int j = 0; j < m; j++)
-            res[i][j] = a[I[i]][j];
-    }
-
-    return res;
-}
-
-TMatrix RestoreCols(TMatrix& a, vector<int>& J) {
-    int n = a.Get_Rows();
-    int r = J.size();
-
-    TMatrix res(n,r,0.);
-
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < r; j++)
-            res[i][j] = a[i][J[j]];
-    }
-
-    return res;
-}
-
-TMatrix maxvol(TMatrix& a, vector<int>& I, vector<int>& J){
-    int r = I.size();
-
-    TMatrix res(r,r,0.);
-    for (int i = 0; i < r; i++) {
-        for (int j = 0; j < r; j++)
-            res[i][j] = a[I[i]][J[j]];
-    }
-
-    return res;
-}
-
-double f(const std::vector<size_t> &idxs) {
-    return  sin(std::accumulate(idxs.begin(), idxs.end(), (size_t)0));
-}
-
-int main() {
-    srand(time(NULL));
-    size_t d = 2;
-    size_t n = 50, m = 50;
-    double eps = 0.1;
-    TMatrix A = SparseMatrix(n,m, 0.01);
-
-    std::vector<size_t> s{n,m};
-
-    auto fp = std::bind(&TMatrix::f, A, std::placeholders::_1);
-    ImplicitTensor t = ImplicitTensor(d, s, fp);
+    ImplicitTensor impTensor(sizes.size(), sizes, std::bind(&Tensor::f, expTensor,std::placeholders::_1));
 
     TensorTrain tt;
 
-    tt.TTCross(t, eps);
-    std::vector<Core> cores = tt.Cores();
+    clock_t begin = clock();
+    tt.TTCross(impTensor,50, 0.0001);
+    clock_t end = clock();
 
     std::vector<size_t> ttRanks = tt.TTRanks();
-    for (auto a : ttRanks) {
-        std::cout << a << ' ';
-    }
+
+    for (auto& r : ttRanks) std::cout << r << ' ';
     std::cout << std::endl;
 
-    auto [I, J] = Skeleton(A, eps);
-    std::cout << I.size() << std::endl;
+    double maxDiff = 0;
+    double expNorm = 0, ttNorm = 0, diffNorm;
+    size_t overallSize = std::accumulate(sizes.begin(), sizes.end(), 1, std::multiplies<size_t>());
+    for (size_t i = 0; i < overallSize; i++) {
+        double expVal = expTensor(i);
+        double ttVal = tt(i);
+
+        expNorm += expVal * expVal;
+        ttNorm += ttVal * ttVal;
+        diffNorm += (expVal - ttVal) * (expVal - ttVal);
+
+        double diff = abs(expVal - ttVal);
+
+        if (diff > maxDiff) maxDiff = diff;
+    }
+
+    expNorm = sqrt(expNorm);
+    ttNorm = sqrt(ttNorm);
+    diffNorm = sqrt(diffNorm);
+
+    std::cout << std::setprecision(5) << std::fixed;
+    std::cout 
+        << "explicit norm = " << expNorm << std::endl
+        << "tt norm = " << ttNorm << std::endl
+        << "delta norm = " << diffNorm << std::endl
+        << "max diff = " << maxDiff << std::endl
+        << "elapsed time = " << double(end - begin) / CLOCKS_PER_SEC << std::endl; 
+
+    //auto cores = tt.Cores();
 
 }
