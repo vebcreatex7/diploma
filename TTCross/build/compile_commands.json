@@ -6,42 +6,42 @@
 },
 {
   "directory": "/home/courage/MAI/diploma/TTCross/build",
-  "command": "/usr/bin/g++    -Wall -ggdb -g   -std=gnu++2a -o CMakeFiles/main.dir/matrix.cpp.o -c /home/courage/MAI/diploma/TTCross/matrix.cpp",
-  "file": "/home/courage/MAI/diploma/TTCross/matrix.cpp"
+  "command": "/usr/bin/g++    -Wall -ggdb -g   -std=gnu++2a -o CMakeFiles/main.dir/src/matrix.cpp.o -c /home/courage/MAI/diploma/TTCross/src/matrix.cpp",
+  "file": "/home/courage/MAI/diploma/TTCross/src/matrix.cpp"
 },
 {
   "directory": "/home/courage/MAI/diploma/TTCross/build",
-  "command": "/usr/bin/g++    -Wall -ggdb -g   -std=gnu++2a -o CMakeFiles/main.dir/calculation.cpp.o -c /home/courage/MAI/diploma/TTCross/calculation.cpp",
-  "file": "/home/courage/MAI/diploma/TTCross/calculation.cpp"
+  "command": "/usr/bin/g++    -Wall -ggdb -g   -std=gnu++2a -o CMakeFiles/main.dir/src/calculation.cpp.o -c /home/courage/MAI/diploma/TTCross/src/calculation.cpp",
+  "file": "/home/courage/MAI/diploma/TTCross/src/calculation.cpp"
 },
 {
   "directory": "/home/courage/MAI/diploma/TTCross/build",
-  "command": "/usr/bin/g++    -Wall -ggdb -g   -std=gnu++2a -o CMakeFiles/main.dir/skeleton.cpp.o -c /home/courage/MAI/diploma/TTCross/skeleton.cpp",
-  "file": "/home/courage/MAI/diploma/TTCross/skeleton.cpp"
+  "command": "/usr/bin/g++    -Wall -ggdb -g   -std=gnu++2a -o CMakeFiles/main.dir/src/skeleton.cpp.o -c /home/courage/MAI/diploma/TTCross/src/skeleton.cpp",
+  "file": "/home/courage/MAI/diploma/TTCross/src/skeleton.cpp"
 },
 {
   "directory": "/home/courage/MAI/diploma/TTCross/build",
-  "command": "/usr/bin/g++    -Wall -ggdb -g   -std=gnu++2a -o CMakeFiles/main.dir/core.cpp.o -c /home/courage/MAI/diploma/TTCross/core.cpp",
-  "file": "/home/courage/MAI/diploma/TTCross/core.cpp"
+  "command": "/usr/bin/g++    -Wall -ggdb -g   -std=gnu++2a -o CMakeFiles/main.dir/src/core.cpp.o -c /home/courage/MAI/diploma/TTCross/src/core.cpp",
+  "file": "/home/courage/MAI/diploma/TTCross/src/core.cpp"
 },
 {
   "directory": "/home/courage/MAI/diploma/TTCross/build",
-  "command": "/usr/bin/g++    -Wall -ggdb -g   -std=gnu++2a -o CMakeFiles/main.dir/tensor_train.cpp.o -c /home/courage/MAI/diploma/TTCross/tensor_train.cpp",
-  "file": "/home/courage/MAI/diploma/TTCross/tensor_train.cpp"
+  "command": "/usr/bin/g++    -Wall -ggdb -g   -std=gnu++2a -o CMakeFiles/main.dir/src/tensor_train.cpp.o -c /home/courage/MAI/diploma/TTCross/src/tensor_train.cpp",
+  "file": "/home/courage/MAI/diploma/TTCross/src/tensor_train.cpp"
 },
 {
   "directory": "/home/courage/MAI/diploma/TTCross/build",
-  "command": "/usr/bin/g++    -Wall -ggdb -g   -std=gnu++2a -o CMakeFiles/main.dir/implicit_tensor.cpp.o -c /home/courage/MAI/diploma/TTCross/implicit_tensor.cpp",
-  "file": "/home/courage/MAI/diploma/TTCross/implicit_tensor.cpp"
+  "command": "/usr/bin/g++    -Wall -ggdb -g   -std=gnu++2a -o CMakeFiles/main.dir/src/implicit_tensor.cpp.o -c /home/courage/MAI/diploma/TTCross/src/implicit_tensor.cpp",
+  "file": "/home/courage/MAI/diploma/TTCross/src/implicit_tensor.cpp"
 },
 {
   "directory": "/home/courage/MAI/diploma/TTCross/build",
-  "command": "/usr/bin/g++    -Wall -ggdb -g   -std=gnu++2a -o CMakeFiles/main.dir/unfolding_matrix.cpp.o -c /home/courage/MAI/diploma/TTCross/unfolding_matrix.cpp",
-  "file": "/home/courage/MAI/diploma/TTCross/unfolding_matrix.cpp"
+  "command": "/usr/bin/g++    -Wall -ggdb -g   -std=gnu++2a -o CMakeFiles/main.dir/src/unfolding_matrix.cpp.o -c /home/courage/MAI/diploma/TTCross/src/unfolding_matrix.cpp",
+  "file": "/home/courage/MAI/diploma/TTCross/src/unfolding_matrix.cpp"
 },
 {
   "directory": "/home/courage/MAI/diploma/TTCross/build",
-  "command": "/usr/bin/g++    -Wall -ggdb -g   -std=gnu++2a -o CMakeFiles/main.dir/tensor.cpp.o -c /home/courage/MAI/diploma/TTCross/tensor.cpp",
-  "file": "/home/courage/MAI/diploma/TTCross/tensor.cpp"
+  "command": "/usr/bin/g++    -Wall -ggdb -g   -std=gnu++2a -o CMakeFiles/main.dir/src/tensor.cpp.o -c /home/courage/MAI/diploma/TTCross/src/tensor.cpp",
+  "file": "/home/courage/MAI/diploma/TTCross/src/tensor.cpp"
 }
 ]

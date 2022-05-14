@@ -1,23 +1,69 @@
-sizes = 10 10 10 10 10 10
-max = 10
-density = 0.0001
-ttRanks = 1 10 64 87 64 10 1 
-explicit count = 95
-tt count = 95
-explicit norm = 54.3369
-tt norm = 54.3369
-delta norm = 5.25284e-30
-max diff = 8.88178e-16
-size = 124360
+=============================
 
+sizes = 2,2,2,2,2,2,2,2,2
+f = sin(i)
 
-sizes = 10 10 10 10 10 10
+upperBoundRanks = []
+elapsed time = 0.020619
+ttRanks = 1 2 4 8 16 16 8 4 2 1 
+overall size of original tensor 512
+overall size of tensor train 1192
+explicit norm = 16.00070
+tt norm = 16.20298
+delta norm = 0.72559
+
+upperBoundRanks = 2, 2, 2, 12, 12, 3, 2, 2
+elapsed time = 0.016128
+ttRanks = 1 2 2 2 4 8 3 2 2 1 
+overall size of original tensor 512
+overall size of tensor train 172
+explicit norm = 16.00070
+tt norm = 15.94500
+delta norm = 0.08797
+
+=============================
+
+elapsed time = 0.037825
+ttRanks = 1 5 48 4 2 1 
+overall size of original tensor 6000
+overall size of tensor train 3448
+explicit norm = 54.77255
+tt norm = 55.75212
+delta norm = 3.55718
+
+=============================
+
+sizes = 10,10,10,10,10,10
 max = 1
-density = 0.001
-ttRanks = 1 10 50 50 50 10 1 
-explicit count = 967
-tt count = 115
-explicit norm = 17.9619
-tt norm = 8.2679
-delta norm = 16.0386
-max diff = 0.945444
+density = 0.0001
+
+upperBoundRanks = []
+elapsed time = 17.1288
+ttRanks = 1 10 64 87 64 10 1 
+overall size of original tensor 1000000
+overall size of tensor train 124360
+explicit norm = 5.43369
+tt norm = 5.43369
+delta norm = 0.00000
+
+
+upperBoundRanks = 5, 32, 40, 32, 5
+elapsed time = 3.7091
+ttRanks = 1 5 32 40 32 5 1 
+overall size of original tensor 1000000
+overall size of tensor train 28900
+explicit norm = 5.43369
+tt norm = 2.27337
+delta norm = 4.93526
+
+=============================
+
+sizes = 10,10,5,4,3,10,6,5,3,4
+f = sin(i)
+
+upperBoundRanks = 1 10 5 4 3 9 6 5 3 4 1
+
+elapsed time = 90.9789
+ttRanks = 1 10 5 4 3 9 6 5 3 4 1
+overall size of original tensor 21600000
+overall size of tensor train 1676

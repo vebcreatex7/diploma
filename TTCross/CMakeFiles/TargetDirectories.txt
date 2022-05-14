@@ -1,3 +1,0 @@
-/home/courage/MAI/diploma/TTCross/CMakeFiles/rebuild_cache.dir
-/home/courage/MAI/diploma/TTCross/CMakeFiles/edit_cache.dir
-/home/courage/MAI/diploma/TTCross/CMakeFiles/main.dir

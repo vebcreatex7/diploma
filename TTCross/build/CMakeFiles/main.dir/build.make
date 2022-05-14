@@ -70,134 +70,134 @@ CMakeFiles/main.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/main.cpp.s"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/courage/MAI/diploma/TTCross/main.cpp -o CMakeFiles/main.dir/main.cpp.s
 
-CMakeFiles/main.dir/matrix.cpp.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/matrix.cpp.o: ../matrix.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/courage/MAI/diploma/TTCross/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/main.dir/matrix.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/matrix.cpp.o -c /home/courage/MAI/diploma/TTCross/matrix.cpp
+CMakeFiles/main.dir/src/matrix.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/src/matrix.cpp.o: ../src/matrix.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/courage/MAI/diploma/TTCross/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/main.dir/src/matrix.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/matrix.cpp.o -c /home/courage/MAI/diploma/TTCross/src/matrix.cpp
 
-CMakeFiles/main.dir/matrix.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/matrix.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/courage/MAI/diploma/TTCross/matrix.cpp > CMakeFiles/main.dir/matrix.cpp.i
+CMakeFiles/main.dir/src/matrix.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/matrix.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/courage/MAI/diploma/TTCross/src/matrix.cpp > CMakeFiles/main.dir/src/matrix.cpp.i
 
-CMakeFiles/main.dir/matrix.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/matrix.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/courage/MAI/diploma/TTCross/matrix.cpp -o CMakeFiles/main.dir/matrix.cpp.s
+CMakeFiles/main.dir/src/matrix.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/matrix.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/courage/MAI/diploma/TTCross/src/matrix.cpp -o CMakeFiles/main.dir/src/matrix.cpp.s
 
-CMakeFiles/main.dir/calculation.cpp.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/calculation.cpp.o: ../calculation.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/courage/MAI/diploma/TTCross/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/main.dir/calculation.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/calculation.cpp.o -c /home/courage/MAI/diploma/TTCross/calculation.cpp
+CMakeFiles/main.dir/src/calculation.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/src/calculation.cpp.o: ../src/calculation.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/courage/MAI/diploma/TTCross/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/main.dir/src/calculation.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/calculation.cpp.o -c /home/courage/MAI/diploma/TTCross/src/calculation.cpp
 
-CMakeFiles/main.dir/calculation.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/calculation.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/courage/MAI/diploma/TTCross/calculation.cpp > CMakeFiles/main.dir/calculation.cpp.i
+CMakeFiles/main.dir/src/calculation.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/calculation.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/courage/MAI/diploma/TTCross/src/calculation.cpp > CMakeFiles/main.dir/src/calculation.cpp.i
 
-CMakeFiles/main.dir/calculation.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/calculation.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/courage/MAI/diploma/TTCross/calculation.cpp -o CMakeFiles/main.dir/calculation.cpp.s
+CMakeFiles/main.dir/src/calculation.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/calculation.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/courage/MAI/diploma/TTCross/src/calculation.cpp -o CMakeFiles/main.dir/src/calculation.cpp.s
 
-CMakeFiles/main.dir/skeleton.cpp.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/skeleton.cpp.o: ../skeleton.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/courage/MAI/diploma/TTCross/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/main.dir/skeleton.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/skeleton.cpp.o -c /home/courage/MAI/diploma/TTCross/skeleton.cpp
+CMakeFiles/main.dir/src/skeleton.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/src/skeleton.cpp.o: ../src/skeleton.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/courage/MAI/diploma/TTCross/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/main.dir/src/skeleton.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/skeleton.cpp.o -c /home/courage/MAI/diploma/TTCross/src/skeleton.cpp
 
-CMakeFiles/main.dir/skeleton.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/skeleton.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/courage/MAI/diploma/TTCross/skeleton.cpp > CMakeFiles/main.dir/skeleton.cpp.i
+CMakeFiles/main.dir/src/skeleton.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/skeleton.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/courage/MAI/diploma/TTCross/src/skeleton.cpp > CMakeFiles/main.dir/src/skeleton.cpp.i
 
-CMakeFiles/main.dir/skeleton.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/skeleton.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/courage/MAI/diploma/TTCross/skeleton.cpp -o CMakeFiles/main.dir/skeleton.cpp.s
+CMakeFiles/main.dir/src/skeleton.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/skeleton.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/courage/MAI/diploma/TTCross/src/skeleton.cpp -o CMakeFiles/main.dir/src/skeleton.cpp.s
 
-CMakeFiles/main.dir/core.cpp.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/core.cpp.o: ../core.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/courage/MAI/diploma/TTCross/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/main.dir/core.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/core.cpp.o -c /home/courage/MAI/diploma/TTCross/core.cpp
+CMakeFiles/main.dir/src/core.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/src/core.cpp.o: ../src/core.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/courage/MAI/diploma/TTCross/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/main.dir/src/core.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/core.cpp.o -c /home/courage/MAI/diploma/TTCross/src/core.cpp
 
-CMakeFiles/main.dir/core.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/core.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/courage/MAI/diploma/TTCross/core.cpp > CMakeFiles/main.dir/core.cpp.i
+CMakeFiles/main.dir/src/core.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/core.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/courage/MAI/diploma/TTCross/src/core.cpp > CMakeFiles/main.dir/src/core.cpp.i
 
-CMakeFiles/main.dir/core.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/core.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/courage/MAI/diploma/TTCross/core.cpp -o CMakeFiles/main.dir/core.cpp.s
+CMakeFiles/main.dir/src/core.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/core.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/courage/MAI/diploma/TTCross/src/core.cpp -o CMakeFiles/main.dir/src/core.cpp.s
 
-CMakeFiles/main.dir/tensor_train.cpp.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/tensor_train.cpp.o: ../tensor_train.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/courage/MAI/diploma/TTCross/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/main.dir/tensor_train.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/tensor_train.cpp.o -c /home/courage/MAI/diploma/TTCross/tensor_train.cpp
+CMakeFiles/main.dir/src/tensor_train.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/src/tensor_train.cpp.o: ../src/tensor_train.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/courage/MAI/diploma/TTCross/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/main.dir/src/tensor_train.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/tensor_train.cpp.o -c /home/courage/MAI/diploma/TTCross/src/tensor_train.cpp
 
-CMakeFiles/main.dir/tensor_train.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/tensor_train.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/courage/MAI/diploma/TTCross/tensor_train.cpp > CMakeFiles/main.dir/tensor_train.cpp.i
+CMakeFiles/main.dir/src/tensor_train.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/tensor_train.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/courage/MAI/diploma/TTCross/src/tensor_train.cpp > CMakeFiles/main.dir/src/tensor_train.cpp.i
 
-CMakeFiles/main.dir/tensor_train.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/tensor_train.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/courage/MAI/diploma/TTCross/tensor_train.cpp -o CMakeFiles/main.dir/tensor_train.cpp.s
+CMakeFiles/main.dir/src/tensor_train.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/tensor_train.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/courage/MAI/diploma/TTCross/src/tensor_train.cpp -o CMakeFiles/main.dir/src/tensor_train.cpp.s
 
-CMakeFiles/main.dir/implicit_tensor.cpp.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/implicit_tensor.cpp.o: ../implicit_tensor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/courage/MAI/diploma/TTCross/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/main.dir/implicit_tensor.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/implicit_tensor.cpp.o -c /home/courage/MAI/diploma/TTCross/implicit_tensor.cpp
+CMakeFiles/main.dir/src/implicit_tensor.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/src/implicit_tensor.cpp.o: ../src/implicit_tensor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/courage/MAI/diploma/TTCross/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/main.dir/src/implicit_tensor.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/implicit_tensor.cpp.o -c /home/courage/MAI/diploma/TTCross/src/implicit_tensor.cpp
 
-CMakeFiles/main.dir/implicit_tensor.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/implicit_tensor.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/courage/MAI/diploma/TTCross/implicit_tensor.cpp > CMakeFiles/main.dir/implicit_tensor.cpp.i
+CMakeFiles/main.dir/src/implicit_tensor.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/implicit_tensor.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/courage/MAI/diploma/TTCross/src/implicit_tensor.cpp > CMakeFiles/main.dir/src/implicit_tensor.cpp.i
 
-CMakeFiles/main.dir/implicit_tensor.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/implicit_tensor.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/courage/MAI/diploma/TTCross/implicit_tensor.cpp -o CMakeFiles/main.dir/implicit_tensor.cpp.s
+CMakeFiles/main.dir/src/implicit_tensor.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/implicit_tensor.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/courage/MAI/diploma/TTCross/src/implicit_tensor.cpp -o CMakeFiles/main.dir/src/implicit_tensor.cpp.s
 
-CMakeFiles/main.dir/unfolding_matrix.cpp.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/unfolding_matrix.cpp.o: ../unfolding_matrix.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/courage/MAI/diploma/TTCross/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/main.dir/unfolding_matrix.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/unfolding_matrix.cpp.o -c /home/courage/MAI/diploma/TTCross/unfolding_matrix.cpp
+CMakeFiles/main.dir/src/unfolding_matrix.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/src/unfolding_matrix.cpp.o: ../src/unfolding_matrix.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/courage/MAI/diploma/TTCross/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/main.dir/src/unfolding_matrix.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/unfolding_matrix.cpp.o -c /home/courage/MAI/diploma/TTCross/src/unfolding_matrix.cpp
 
-CMakeFiles/main.dir/unfolding_matrix.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/unfolding_matrix.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/courage/MAI/diploma/TTCross/unfolding_matrix.cpp > CMakeFiles/main.dir/unfolding_matrix.cpp.i
+CMakeFiles/main.dir/src/unfolding_matrix.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/unfolding_matrix.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/courage/MAI/diploma/TTCross/src/unfolding_matrix.cpp > CMakeFiles/main.dir/src/unfolding_matrix.cpp.i
 
-CMakeFiles/main.dir/unfolding_matrix.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/unfolding_matrix.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/courage/MAI/diploma/TTCross/unfolding_matrix.cpp -o CMakeFiles/main.dir/unfolding_matrix.cpp.s
+CMakeFiles/main.dir/src/unfolding_matrix.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/unfolding_matrix.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/courage/MAI/diploma/TTCross/src/unfolding_matrix.cpp -o CMakeFiles/main.dir/src/unfolding_matrix.cpp.s
 
-CMakeFiles/main.dir/tensor.cpp.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/tensor.cpp.o: ../tensor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/courage/MAI/diploma/TTCross/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/main.dir/tensor.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/tensor.cpp.o -c /home/courage/MAI/diploma/TTCross/tensor.cpp
+CMakeFiles/main.dir/src/tensor.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/src/tensor.cpp.o: ../src/tensor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/courage/MAI/diploma/TTCross/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/main.dir/src/tensor.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/tensor.cpp.o -c /home/courage/MAI/diploma/TTCross/src/tensor.cpp
 
-CMakeFiles/main.dir/tensor.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/tensor.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/courage/MAI/diploma/TTCross/tensor.cpp > CMakeFiles/main.dir/tensor.cpp.i
+CMakeFiles/main.dir/src/tensor.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/tensor.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/courage/MAI/diploma/TTCross/src/tensor.cpp > CMakeFiles/main.dir/src/tensor.cpp.i
 
-CMakeFiles/main.dir/tensor.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/tensor.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/courage/MAI/diploma/TTCross/tensor.cpp -o CMakeFiles/main.dir/tensor.cpp.s
+CMakeFiles/main.dir/src/tensor.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/tensor.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/courage/MAI/diploma/TTCross/src/tensor.cpp -o CMakeFiles/main.dir/src/tensor.cpp.s
 
 # Object files for target main
 main_OBJECTS = \
 "CMakeFiles/main.dir/main.cpp.o" \
-"CMakeFiles/main.dir/matrix.cpp.o" \
-"CMakeFiles/main.dir/calculation.cpp.o" \
-"CMakeFiles/main.dir/skeleton.cpp.o" \
-"CMakeFiles/main.dir/core.cpp.o" \
-"CMakeFiles/main.dir/tensor_train.cpp.o" \
-"CMakeFiles/main.dir/implicit_tensor.cpp.o" \
-"CMakeFiles/main.dir/unfolding_matrix.cpp.o" \
-"CMakeFiles/main.dir/tensor.cpp.o"
+"CMakeFiles/main.dir/src/matrix.cpp.o" \
+"CMakeFiles/main.dir/src/calculation.cpp.o" \
+"CMakeFiles/main.dir/src/skeleton.cpp.o" \
+"CMakeFiles/main.dir/src/core.cpp.o" \
+"CMakeFiles/main.dir/src/tensor_train.cpp.o" \
+"CMakeFiles/main.dir/src/implicit_tensor.cpp.o" \
+"CMakeFiles/main.dir/src/unfolding_matrix.cpp.o" \
+"CMakeFiles/main.dir/src/tensor.cpp.o"
 
 # External object files for target main
 main_EXTERNAL_OBJECTS =
 
 main: CMakeFiles/main.dir/main.cpp.o
-main: CMakeFiles/main.dir/matrix.cpp.o
-main: CMakeFiles/main.dir/calculation.cpp.o
-main: CMakeFiles/main.dir/skeleton.cpp.o
-main: CMakeFiles/main.dir/core.cpp.o
-main: CMakeFiles/main.dir/tensor_train.cpp.o
-main: CMakeFiles/main.dir/implicit_tensor.cpp.o
-main: CMakeFiles/main.dir/unfolding_matrix.cpp.o
-main: CMakeFiles/main.dir/tensor.cpp.o
+main: CMakeFiles/main.dir/src/matrix.cpp.o
+main: CMakeFiles/main.dir/src/calculation.cpp.o
+main: CMakeFiles/main.dir/src/skeleton.cpp.o
+main: CMakeFiles/main.dir/src/core.cpp.o
+main: CMakeFiles/main.dir/src/tensor_train.cpp.o
+main: CMakeFiles/main.dir/src/implicit_tensor.cpp.o
+main: CMakeFiles/main.dir/src/unfolding_matrix.cpp.o
+main: CMakeFiles/main.dir/src/tensor.cpp.o
 main: CMakeFiles/main.dir/build.make
 main: CMakeFiles/main.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/courage/MAI/diploma/TTCross/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable main"

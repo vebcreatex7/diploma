@@ -3,8 +3,8 @@
 #include <limits>
 #include <ctime>
 
-#include "tensor_train.hpp"
-#include "tensor.hpp"
+#include "include/tensor_train.hpp"
+#include "include/tensor.hpp"
 
 
 using namespace std;
@@ -24,24 +24,27 @@ TMatrix SparseMatrix(int n, int m, double density) {
 }
 
 int main() {  
-    std::vector<size_t> sizes{10,10,10,10};
+    std::vector<size_t> sizes{10,10,5};
 
     Tensor expTensor(sizes.size(), sizes);
-    expTensor.FillSparse(1, 1);
+    //expTensor.FillSparse(1, 0.01);
+    expTensor.FillSin();
 
     ImplicitTensor impTensor(sizes.size(), sizes, std::bind(&Tensor::f, expTensor,std::placeholders::_1));
+    
+    std::vector<size_t> upperBoundRanks = {10,5}; 
 
     TensorTrain tt;
 
     clock_t begin = clock();
-    tt.TTCross(impTensor,50, 0.0001);
+    tt.TTCross(impTensor,upperBoundRanks, 0.0001);
     clock_t end = clock();
-
+    std::cout << "elapsed time = " << double(end - begin) / CLOCKS_PER_SEC << std::endl;
     std::vector<size_t> ttRanks = tt.TTRanks();
-
+    std::cout << "ttRanks = ";
     for (auto& r : ttRanks) std::cout << r << ' ';
     std::cout << std::endl;
-
+    /*
     double maxDiff = 0;
     double expNorm = 0, ttNorm = 0, diffNorm;
     size_t overallSize = std::accumulate(sizes.begin(), sizes.end(), 1, std::multiplies<size_t>());
@@ -64,12 +67,11 @@ int main() {
 
     std::cout << std::setprecision(5) << std::fixed;
     std::cout 
+        << "overall size of original tensor " << expTensor.OverallSize() << std::endl
+        << "overall size of tensor train " << tt.OverallSize() << std::endl
         << "explicit norm = " << expNorm << std::endl
         << "tt norm = " << ttNorm << std::endl
-        << "delta norm = " << diffNorm << std::endl
-        << "max diff = " << maxDiff << std::endl
-        << "elapsed time = " << double(end - begin) / CLOCKS_PER_SEC << std::endl; 
-
-    //auto cores = tt.Cores();
+        << "delta norm = " << diffNorm << std::endl;
+    */
 
 }

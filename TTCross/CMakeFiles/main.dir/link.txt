@@ -1,1 +1,0 @@
-/usr/bin/c++  -Wall -ggdb -g   CMakeFiles/main.dir/main.cpp.o CMakeFiles/main.dir/matrix.cpp.o CMakeFiles/main.dir/calculation.cpp.o CMakeFiles/main.dir/skeleton.cpp.o CMakeFiles/main.dir/core.cpp.o CMakeFiles/main.dir/tensor_train.cpp.o CMakeFiles/main.dir/implicit_tensor.cpp.o CMakeFiles/main.dir/unfolding_matrix.cpp.o CMakeFiles/main.dir/tensor.cpp.o  -o main 

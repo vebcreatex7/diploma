@@ -4,15 +4,15 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/courage/MAI/diploma/TTCross/calculation.cpp" "/home/courage/MAI/diploma/TTCross/build/CMakeFiles/main.dir/calculation.cpp.o"
-  "/home/courage/MAI/diploma/TTCross/core.cpp" "/home/courage/MAI/diploma/TTCross/build/CMakeFiles/main.dir/core.cpp.o"
-  "/home/courage/MAI/diploma/TTCross/implicit_tensor.cpp" "/home/courage/MAI/diploma/TTCross/build/CMakeFiles/main.dir/implicit_tensor.cpp.o"
   "/home/courage/MAI/diploma/TTCross/main.cpp" "/home/courage/MAI/diploma/TTCross/build/CMakeFiles/main.dir/main.cpp.o"
-  "/home/courage/MAI/diploma/TTCross/matrix.cpp" "/home/courage/MAI/diploma/TTCross/build/CMakeFiles/main.dir/matrix.cpp.o"
-  "/home/courage/MAI/diploma/TTCross/skeleton.cpp" "/home/courage/MAI/diploma/TTCross/build/CMakeFiles/main.dir/skeleton.cpp.o"
-  "/home/courage/MAI/diploma/TTCross/tensor.cpp" "/home/courage/MAI/diploma/TTCross/build/CMakeFiles/main.dir/tensor.cpp.o"
-  "/home/courage/MAI/diploma/TTCross/tensor_train.cpp" "/home/courage/MAI/diploma/TTCross/build/CMakeFiles/main.dir/tensor_train.cpp.o"
-  "/home/courage/MAI/diploma/TTCross/unfolding_matrix.cpp" "/home/courage/MAI/diploma/TTCross/build/CMakeFiles/main.dir/unfolding_matrix.cpp.o"
+  "/home/courage/MAI/diploma/TTCross/src/calculation.cpp" "/home/courage/MAI/diploma/TTCross/build/CMakeFiles/main.dir/src/calculation.cpp.o"
+  "/home/courage/MAI/diploma/TTCross/src/core.cpp" "/home/courage/MAI/diploma/TTCross/build/CMakeFiles/main.dir/src/core.cpp.o"
+  "/home/courage/MAI/diploma/TTCross/src/implicit_tensor.cpp" "/home/courage/MAI/diploma/TTCross/build/CMakeFiles/main.dir/src/implicit_tensor.cpp.o"
+  "/home/courage/MAI/diploma/TTCross/src/matrix.cpp" "/home/courage/MAI/diploma/TTCross/build/CMakeFiles/main.dir/src/matrix.cpp.o"
+  "/home/courage/MAI/diploma/TTCross/src/skeleton.cpp" "/home/courage/MAI/diploma/TTCross/build/CMakeFiles/main.dir/src/skeleton.cpp.o"
+  "/home/courage/MAI/diploma/TTCross/src/tensor.cpp" "/home/courage/MAI/diploma/TTCross/build/CMakeFiles/main.dir/src/tensor.cpp.o"
+  "/home/courage/MAI/diploma/TTCross/src/tensor_train.cpp" "/home/courage/MAI/diploma/TTCross/build/CMakeFiles/main.dir/src/tensor_train.cpp.o"
+  "/home/courage/MAI/diploma/TTCross/src/unfolding_matrix.cpp" "/home/courage/MAI/diploma/TTCross/build/CMakeFiles/main.dir/src/unfolding_matrix.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
