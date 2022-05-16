@@ -177,6 +177,33 @@ src/calculation.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/calculation.cpp.s
 .PHONY : src/calculation.cpp.s
 
+src/calculation.o: src/calculation.cu.o
+
+.PHONY : src/calculation.o
+
+# target to build an object file
+src/calculation.cu.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/calculation.cu.o
+.PHONY : src/calculation.cu.o
+
+src/calculation.i: src/calculation.cu.i
+
+.PHONY : src/calculation.i
+
+# target to preprocess a source file
+src/calculation.cu.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/calculation.cu.i
+.PHONY : src/calculation.cu.i
+
+src/calculation.s: src/calculation.cu.s
+
+.PHONY : src/calculation.s
+
+# target to generate assembly for a file
+src/calculation.cu.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/calculation.cu.s
+.PHONY : src/calculation.cu.s
+
 src/core.o: src/core.cpp.o
 
 .PHONY : src/core.o
@@ -203,6 +230,33 @@ src/core.s: src/core.cpp.s
 src/core.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/core.cpp.s
 .PHONY : src/core.cpp.s
+
+src/dev_matrix.o: src/dev_matrix.cu.o
+
+.PHONY : src/dev_matrix.o
+
+# target to build an object file
+src/dev_matrix.cu.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/dev_matrix.cu.o
+.PHONY : src/dev_matrix.cu.o
+
+src/dev_matrix.i: src/dev_matrix.cu.i
+
+.PHONY : src/dev_matrix.i
+
+# target to preprocess a source file
+src/dev_matrix.cu.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/dev_matrix.cu.i
+.PHONY : src/dev_matrix.cu.i
+
+src/dev_matrix.s: src/dev_matrix.cu.s
+
+.PHONY : src/dev_matrix.s
+
+# target to generate assembly for a file
+src/dev_matrix.cu.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/dev_matrix.cu.s
+.PHONY : src/dev_matrix.cu.s
 
 src/implicit_tensor.o: src/implicit_tensor.cpp.o
 
@@ -381,9 +435,15 @@ help:
 	@echo "... src/calculation.o"
 	@echo "... src/calculation.i"
 	@echo "... src/calculation.s"
+	@echo "... src/calculation.o"
+	@echo "... src/calculation.i"
+	@echo "... src/calculation.s"
 	@echo "... src/core.o"
 	@echo "... src/core.i"
 	@echo "... src/core.s"
+	@echo "... src/dev_matrix.o"
+	@echo "... src/dev_matrix.i"
+	@echo "... src/dev_matrix.s"
 	@echo "... src/implicit_tensor.o"
 	@echo "... src/implicit_tensor.i"
 	@echo "... src/implicit_tensor.s"

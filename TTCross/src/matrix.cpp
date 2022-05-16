@@ -203,41 +203,6 @@ std::tuple<TMatrix, TMatrix, std::vector<std::pair<size_t, size_t>>> TMatrix::LU
     return  std::make_tuple(L, U, P);
 }
 
-std::tuple<TMatrix, TMatrix> TMatrix::QRdecomposition() const {
-    size_t n = Size();
-    TMatrix A = *this;
-    TMatrix E(n);
-    for (size_t i = 0; i != n; i++)
-        E[i][i] = 1.;
-
-    TMatrix Q = E;
-    TMatrix R(n);
-
-    for (size_t k = 0; k != n - 1; k++) {
-        
-        TMatrix b(n - k, (size_t)1);
-        for (size_t i = 0; i != n - k; i++)
-            b[i][0] = A[k + i][k];
-
-        TMatrix v(n, (size_t)1);
-        for (size_t i = 0; i != n; i++) {
-            if (i < k)
-                v[i][0] = 0.;
-            else if (i == k)
-                v[i][0] = A[i][i] + Sign(A[i][i]) * b.Norm_2();
-            else 
-                v[i][0] = A[i][k];
-        }
-
-        TMatrix H = E - ((v * v.Transpose()) * (2. / TMatrix(v.Transpose() * v)[0][0]));
-        A = H * A;
-        Q = Q * H;
-    }
-    R = A;
-    return std::make_tuple(Q, R);
-    
-}
-
 long double TMatrix::Determinant() const {
     auto [L, U, P] = this->LUdecomposition();
     return LU_Determinant(U, P);
@@ -298,27 +263,6 @@ long double TMatrix::Norm_2() const {
     }
     sum = std::pow(sum, 0.5);
     return sum;
-}
-
-long double TMatrix::GetSquaredColumnSum(size_t row, size_t col) const {
-    long double sum = 0.;
-    for (size_t j = row; j < rows_; j++) {
-        sum += data_[j][col] * data_[j][col];
-    }
-
-    return std::sqrt(sum);
-
-}
-
-std::pair<size_t, size_t> TMatrix::Change_Without_Zero(size_t i) {
-    size_t j = 0;
-    for (size_t j = i + 1; j < Size(); j++) {
-        if (data_[j][i] != 0.) {
-            Swap_Rows(i ,j);
-            break;
-        }
-    }
-    return std::make_pair(i, j);    
 }
 
 

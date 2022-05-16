@@ -43,5 +43,15 @@
   "directory": "/home/courage/MAI/diploma/TTCross/build",
   "command": "/usr/bin/g++    -Wall -ggdb -g   -std=gnu++2a -o CMakeFiles/main.dir/src/tensor.cpp.o -c /home/courage/MAI/diploma/TTCross/src/tensor.cpp",
   "file": "/home/courage/MAI/diploma/TTCross/src/tensor.cpp"
+},
+{
+  "directory": "/home/courage/MAI/diploma/TTCross/build",
+  "command": "/usr/local/cuda/bin/nvcc    -g   -x cu -c /home/courage/MAI/diploma/TTCross/src/dev_matrix.cu -o CMakeFiles/main.dir/src/dev_matrix.cu.o",
+  "file": "/home/courage/MAI/diploma/TTCross/src/dev_matrix.cu"
+},
+{
+  "directory": "/home/courage/MAI/diploma/TTCross/build",
+  "command": "/usr/local/cuda/bin/nvcc    -g   -x cu -c /home/courage/MAI/diploma/TTCross/src/calculation.cu -o CMakeFiles/main.dir/src/calculation.cu.o",
+  "file": "/home/courage/MAI/diploma/TTCross/src/calculation.cu"
 }
 ]

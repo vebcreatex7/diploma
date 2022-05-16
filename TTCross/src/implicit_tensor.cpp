@@ -1,8 +1,10 @@
 #include "../include/implicit_tensor.hpp"
 
-ImplicitTensor::ImplicitTensor(size_t d, const std::vector<size_t>& s, std::function<double(const std::vector<size_t> &)> f) :
-    d_(d), s_(s), f_(f) {
-        leftNestedSequence_.push_back(std::vector<size_t>());
+#include <utility>
+
+ImplicitTensor::ImplicitTensor(size_t d, std::vector<size_t>  s, std::function<double(const std::vector<size_t> &)> f) :
+    d_(d), s_(std::move(s)), f_(std::move(f)) {
+        leftNestedSequence_.emplace_back(std::vector<size_t>());
         k_ = 0;
 };
 
@@ -47,7 +49,7 @@ std::vector<size_t> ImplicitTensor::unfoldColIdx(size_t p) const {
 
     std::vector<size_t> idxs(n);
 
-    size_t product = std::accumulate(s_.begin() + k_ + 1, s_.end(), 1, std::multiplies<size_t>());
+    size_t product = std::accumulate(s_.begin() + k_ + 1, s_.end(), 1, std::multiplies<>());
 
     for (size_t i = k_ + 1, j = 0; i < d_ - 1; i++, j++) {
         product /= s_[i];

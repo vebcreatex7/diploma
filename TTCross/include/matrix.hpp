@@ -1,3 +1,5 @@
+#ifndef MATRIX_H
+#define MATRIX_H
 
 #include <iostream>
 #include <cstddef>
@@ -13,8 +15,6 @@ using namespace std;
 
 long double const delta = 1e-9;
 
-#pragma once
-
 class TMatrix {
 private:
     size_t rows_;
@@ -24,7 +24,7 @@ private:
     
 
 public:
-    explicit TMatrix(size_t = 0, long double = 0.);
+    TMatrix(size_t = 0, long double = 0.);
     TMatrix(size_t , size_t , long double = 0.);
     TMatrix(TMatrix const &);
     ~TMatrix();
@@ -63,5 +63,4 @@ public:
 
 };
 
-
-
+#endif
