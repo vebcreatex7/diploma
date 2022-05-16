@@ -1,10 +1,11 @@
 #include <numeric>
 #include <random>
+#include <utility>
 
 #include "../include/tensor.hpp"
 
-Tensor::Tensor(size_t d, std::vector<size_t> sizes) : d_(d), sizes_(sizes) {
-    overallSize_ = std::accumulate(sizes_.begin(), sizes_.end(), 1, std::multiplies<size_t>());
+Tensor::Tensor(size_t d, std::vector<size_t>  sizes) : d_(d), sizes_(std::move(sizes)) {
+    overallSize_ = std::accumulate(sizes_.begin(), sizes_.end(), 1, std::multiplies<>());
 
     data_ = new double[overallSize_]();
 }

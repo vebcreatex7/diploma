@@ -13,7 +13,7 @@ class Tensor {
 
     public:
     Tensor() : d_(0), data_(nullptr) {};
-    Tensor(size_t d, std::vector<size_t> sizes_);
+    Tensor(size_t d, std::vector<size_t>  sizes);
     void FillSparse(double maxVal, double density);
     void FillSin();
     size_t OverallSize() const {return overallSize_;}

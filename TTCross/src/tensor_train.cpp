@@ -25,7 +25,7 @@ void TensorTrain::TTCross(ImplicitTensor t, const std::vector<size_t>& upperBoun
     ttRanks_[0] = 1;
 
     for (size_t k = 0; k < d-1; k++) {
-        size_t n = ttRanks_[k] * sizes_[k], m = std::accumulate(sizes_.begin() + k + 1, sizes_.end(), 1, std::multiplies<size_t>());
+        size_t n = ttRanks_[k] * sizes_[k], m = std::accumulate(sizes_.begin() + k + 1, sizes_.end(), 1, std::multiplies<>());
 
         A = UnfoldingMatrix(t, n, m);
 
@@ -86,7 +86,7 @@ double TensorTrain::operator()(const std::vector<size_t>& idxs) const {
 double TensorTrain::operator()(size_t p) const {
     size_t d = sizes_.size();
     std::vector<size_t> idxs(d);
-    size_t product = std::accumulate(sizes_.begin(), sizes_.end(), 1, std::multiplies<size_t>());
+    size_t product = std::accumulate(sizes_.begin(), sizes_.end(), 1, std::multiplies<>());
 
     for (size_t i = 0; i < d - 1; i++) {
         product /= sizes_[i];
