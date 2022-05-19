@@ -9,6 +9,15 @@ CMake Warning (dev) in CMakeLists.txt:
   CUDA_ARCHITECTURES is empty for target "main".
 This warning is for project developers.  Use -Wno-dev to suppress it.
 
+CMake Warning (dev) in CMakeLists.txt:
+  Policy CMP0104 is not set: CMAKE_CUDA_ARCHITECTURES now detected for NVCC,
+  empty CUDA_ARCHITECTURES not allowed.  Run "cmake --help-policy CMP0104"
+  for policy details.  Use the cmake_policy command to set the policy and
+  suppress this warning.
+
+  CUDA_ARCHITECTURES is empty for target "main".
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
 -- Generating done
 CMake Warning (dev) in CMakeLists.txt:
   Policy CMP0104 is not set: CMAKE_CUDA_ARCHITECTURES now detected for NVCC,
@@ -19,10 +28,13 @@ CMake Warning (dev) in CMakeLists.txt:
   CUDA_ARCHITECTURES is empty for target "main".
 This warning is for project developers.  Use -Wno-dev to suppress it.
 
--- Build files have been written to: /home/courage/MAI/diploma/TTCross/cmake-build-debug
+CMake Warning (dev) in CMakeLists.txt:
+  Policy CMP0104 is not set: CMAKE_CUDA_ARCHITECTURES now detected for NVCC,
+  empty CUDA_ARCHITECTURES not allowed.  Run "cmake --help-policy CMP0104"
+  for policy details.  Use the cmake_policy command to set the policy and
+  suppress this warning.
 
-Cannot get compiler information:
-	Compiler exited with error code 1: /usr/local/cuda/bin/nvcc -Wall -g -std=c++17 --dryrun /tmp/compiler-file17313048567666864365.cu
-	nvcc fatal   : Unknown option '-Wall'
-	
-	
+  CUDA_ARCHITECTURES is empty for target "main".
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Build files have been written to: /home/courage/MAI/diploma/TTCross/cmake-build-debug

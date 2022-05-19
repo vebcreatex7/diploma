@@ -6,7 +6,7 @@
 # It is included in the main 'build.ninja'.
 
 # =============================================================================
-# Project: cmake_and_cuda
+# Project: cuda_projct
 # Configuration: Debug
 # =============================================================================
 # =============================================================================
@@ -30,21 +30,11 @@ rule CUDA_COMPILER__main
 
 
 #############################################
-# Rule for compiling CXX files.
+# Rule for linking CUDA executable.
 
-rule CXX_COMPILER__main
-  depfile = $DEP_FILE
-  deps = gcc
-  command = /usr/bin/c++  $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
-  description = Building CXX object $out
-
-
-#############################################
-# Rule for linking CXX executable.
-
-rule CXX_EXECUTABLE_LINKER__main
-  command = $PRE_LINK && /usr/bin/c++  $FLAGS  $LINK_FLAGS $in  -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
-  description = Linking CXX executable $TARGET_FILE
+rule CUDA_EXECUTABLE_LINKER__main
+  command = $PRE_LINK && /usr/bin/g++ $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES -L"/usr/local/cuda/targets/x86_64-linux/lib/stubs" -L"/usr/local/cuda/targets/x86_64-linux/lib" -lcudadevrt -lcudart_static -lrt -lpthread -ldl && $POST_BUILD
+  description = Linking CUDA executable $TARGET_FILE
   restat = $RESTAT
 
 

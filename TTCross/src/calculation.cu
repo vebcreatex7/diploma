@@ -1,48 +1,60 @@
 #include "../include/calculation.cuh"
 
-template <class T>
-__global__ void SwapRows(T* dev_matrix, size_t n, size_t r1, size_t r2) {
-    size_t idx = threadIdx.x + blockDim.x * blockIdx.x;
-    size_t offsetx = blockDim.x * gridDim.x;
-    for (size_t i = idx; i < 2 * n; i += offsetx) {
-        T tmp = dev_matrix[r1 + n * i];
-        dev_matrix[r1 + n * i] = dev_matrix[r2 + n * i];
-        dev_matrix[r2 + n * i] = tmp;
+
+TMatrix LU_Solving_System(TMatrix const& L, TMatrix const& U, TMatrix b, std::vector<std::pair<size_t, size_t>> const& p) {
+    for (size_t i = 0; i != p.size(); i++)
+        b.Swap_Rows(p[i].first, p[i].second);
+    //Ly = b
+    //Forward Substitution
+
+    size_t n = L.Size();
+    TMatrix y(n, size_t(1));
+    for (size_t i = 0; i != n; i++) {
+        long double t = 0.;
+        for (size_t j = 0; j != i; j++)
+            t += y[j][0] * L[i][j];
+        y[i][0] = b[i][0] - t;
     }
+
+    //Ux = y;
+    //Back Substitution
+
+    TMatrix x(n, (size_t)1);
+    for (int i = n - 1; i >= 0; i--) {
+        long double t = 0.;
+        for (int j = i + 1; j < (int)n; j++)
+            t += U[i][j] * x[j][0];
+        x[i][0] = (y[i][0] - t) / U[i][i];
+    }
+
+    return x;
+
 }
 
-template <class T>
-__global__ void ForwardGauss(T* dev_matrix, size_t n, size_t i) {
-    size_t idx = threadIdx.x + blockDim.x * blockIdx.x;
-    size_t idy = threadIdx.y + blockDim.y * blockIdx.y;
-    size_t offsetx = blockDim.x * gridDim.x;
-    size_t offsety = blockDim.y * gridDim.y;
 
-    for (size_t k = idy + i + 1; k < 2 * n; k += offsety)
-        for (size_t j = idx + i + 1; j < n; j += offsetx)
-            dev_matrix[k * n + j]  -= (dev_matrix[k * n + i] * dev_matrix[i * n + j] / dev_matrix[i + i * n]);
+long double LU_Determinant(TMatrix const& U, std::vector<std::pair<size_t, size_t>> const & P) {
+    size_t p = 0;
+    for (auto a : P)
+        p = a.first != a.second ? p + 1 : p;
+
+    long double det = 1.;
+    for (size_t i = 0; i != U.Size(); i++)
+        det *= U[i][i];
+    return std::pow(-1, p) * det;
 }
 
-template <class T>
-__global__ void BackwardGauss(T* dev_matrix, size_t n, size_t i) {
-    size_t idx = threadIdx.x + blockDim.x * blockIdx.x;
-    size_t idy = threadIdx.y + blockDim.y * blockIdx.y;
-    size_t offsetx = blockDim.x * gridDim.x;
-    size_t offsety = blockDim.y * gridDim.y;
-    
-    for (size_t k = idy + i + 1; k < 2 * n; k += offsety)
-        for (size_t j = i - 1 - idx; j >= (size_t)-1; j -= offsetx)
-            dev_matrix[k * n + j]  -= (dev_matrix[k * n + i] * dev_matrix[i * n + j] / dev_matrix[i + i * n]);
+
+
+TMatrix LU_Inverse_Matrix(TMatrix const& L, TMatrix const& U, std::vector<std::pair<size_t, size_t>> const& p) {
+    size_t n = L.Size();
+    TMatrix Inverse(n);
+    for (size_t i = 0; i != n; i++) {
+        TMatrix b(n, (size_t)1);
+        b[i][0] = 1;
+        TMatrix tmp = LU_Solving_System(L, U, b, p);
+        for (size_t j = 0; j != n; j++)
+            Inverse[j][i] = tmp[j][0];
+    }
+    return Inverse;
 }
 
-template <class T>
-__global__ void Normalize(T* dev_matrix, size_t n) {
-    size_t idx = threadIdx.x + blockDim.x * blockIdx.x;
-    size_t idy = threadIdx.y + blockDim.y * blockIdx.y;
-    size_t offsetx = blockDim.x * gridDim.x;
-    size_t offsety = blockDim.y * gridDim.y;
-
-    for (size_t i = idy; i < n; i += offsety)
-        for (size_t j = n + idx; j < 2 * n; j += offsetx)
-            dev_matrix[i + j * n] /= dev_matrix[i + i * n];
-}
