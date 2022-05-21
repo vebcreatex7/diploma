@@ -131,7 +131,7 @@ std::pair<std::vector<size_t>,std::vector<size_t>> Skeleton(UnfoldingMatrix A, s
         }
 
         size_t jMax = maxInRow(A,J,iMax);
-
+    /*
         TMatrix C(rows,1,0.);
         for (size_t i = 0; i < rows; i++) {
             C[i][0] = A(i,jMax);
@@ -147,7 +147,7 @@ std::pair<std::vector<size_t>,std::vector<size_t>> Skeleton(UnfoldingMatrix A, s
 
         norm = eps * UV.Norm_2();
         criteria = fabs(a_ij) * sqrt((cols - r) * (rows - r));
-
+*/
         I.remove(iMax);
         J.remove(jMax);
 
@@ -155,7 +155,7 @@ std::pair<std::vector<size_t>,std::vector<size_t>> Skeleton(UnfoldingMatrix A, s
         JMax.push_back(jMax);
 
         r++;
-        if (norm >= criteria) break;
+        //if (norm >= criteria) break;
     }
 
     std::sort(IMax.begin(),IMax.end());

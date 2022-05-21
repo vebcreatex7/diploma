@@ -24,13 +24,17 @@ public:
     void TTCross(ImplicitTensor t, double eps);
     void TTCross(ImplicitTensor t, size_t maxR, double eps);
     void TTCross(ImplicitTensor t, const std::vector<size_t>& upperBoundRanks, double eps);
+
+    void devTTCross(ImplicitTensor t, double eps);
+    void devTTCross(ImplicitTensor t, size_t maxR, double eps);
+    void devTTCross(ImplicitTensor t, const std::vector<size_t>& upperBoundRanks, double eps);
     size_t OverallSize() const;
 
-    float value(const std::vector<size_t>& idxs) const;
-    float linearValue(size_t p) const;
+    double value(const std::vector<size_t>& idxs) const;
+    double linearValue(size_t p) const;
 
-    float operator()(const std::vector<size_t>& idxs) const;
-    float operator()(size_t p) const;
+    double operator()(const std::vector<size_t>& idxs) const;
+    double operator()(size_t p) const;
 };
 
 #endif

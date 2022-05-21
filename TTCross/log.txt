@@ -67,3 +67,15 @@ elapsed time = 90.9789
 ttRanks = 1 10 5 4 3 9 6 5 3 4 1
 overall size of original tensor 21600000
 overall size of tensor train 1676
+
+=============================
+
+elapsed time = 18.8068
+ttRanks = 1 10 40 40 32 10 1
+overall size of original tensor 1000000
+overall size of tensor train 36200
+explicit norm = 5.67562
+tt norm = 4.01384
+delta norm = 4.01270
+
+Process finished with exit code 0

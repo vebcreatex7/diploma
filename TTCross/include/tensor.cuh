@@ -9,12 +9,12 @@ class Tensor {
     size_t d_;
     std::vector<size_t> sizes_;
     size_t overallSize_{};
-    float* data_;
+    double* data_;
 
     public:
     Tensor() : d_(0), data_(nullptr) {};
     Tensor(size_t d, std::vector<size_t>  sizes);
-    void FillSparse(float maxVal, float density);
+    void FillSparse(double maxVal, double density);
     void FillSin();
     size_t OverallSize() const {return overallSize_;}
     double f(const std::vector<size_t>& idxs) const {return this->operator()(idxs);}

@@ -7,14 +7,14 @@
 Tensor::Tensor(size_t d, std::vector<size_t> sizes) : d_(d), sizes_(std::move(sizes)) {
     overallSize_ = std::accumulate(sizes_.begin(), sizes_.end(), 1, std::multiplies<>());
 
-    data_ = new float[overallSize_]();
+    data_ = new double[overallSize_]();
 }
 
-void Tensor::FillSparse(float maxVal, float density) {
+void Tensor::FillSparse(double maxVal, double density) {
     std::mt19937 MyRNG;
     MyRNG.seed(seed_val);
-    std::uniform_real_distribution<float> prob;
-    std::uniform_real_distribution<float> val(0, maxVal);
+    std::uniform_real_distribution<double> prob;
+    std::uniform_real_distribution<double> val(0, maxVal);
 
     for (size_t i = 0; i < overallSize_; i++) {
         if (prob(MyRNG) <= density) {
@@ -25,7 +25,7 @@ void Tensor::FillSparse(float maxVal, float density) {
 
 void Tensor::FillSin() {
     for (size_t i = 0; i < overallSize_; i++) {
-        data_[i] = (float)sin(i);
+        data_[i] = (double)sin(i);
     }
 }
 

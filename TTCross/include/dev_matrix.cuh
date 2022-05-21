@@ -1,6 +1,7 @@
 #ifndef DEV_MATRIX_CUH
 #define DEV_MATRIX_CUH
 
+#include <random>
 #include <cuda_runtime.h>
 #include <cublas_v2.h>
 #include <thrust/extrema.h>
@@ -25,6 +26,8 @@ const size_t yThreads = 8;
 const size_t xBlocks  = 128;
 const size_t yBlocks  = 8;
 
+const size_t seed_val = 2;
+
 template <class T>
 class DevMatrix {
 private:
@@ -32,11 +35,11 @@ private:
     T* devData_;
 
 
-
 public:
     DevMatrix();
     DevMatrix(size_t rows, size_t cols, T val = 0);
     DevMatrix(const DevMatrix<T>& other);
+    explicit DevMatrix(const TMatrix& other);
     explicit DevMatrix(const Matrix& other);
     ~DevMatrix();
     Matrix ToHost() const;
@@ -51,6 +54,11 @@ public:
     DevMatrix<T>& operator= (const Matrix& other);
     DevMatrix<T> operator* (const DevMatrix<T>& other) const;
 
+    template <class U> friend std::ostream& operator<< (std::ostream& out, const DevMatrix<U>& m);
+    template <class U> friend std::istream& operator>> (std::istream& in, DevMatrix<U>& m);
+
+    template <class U> friend DevMatrix<U> Eye(size_t n);
+    template <class U> friend DevMatrix<U> Random(size_t n, size_t m, U max);
 };
 
 template <class T>
@@ -70,6 +78,23 @@ DevMatrix<T>::DevMatrix(const DevMatrix<T>& other) : rows_(other.rows_), cols_(o
 
     CudaErrHandler(cudaMalloc((void**)&devData_, bytes));
     CudaErrHandler(cudaMemcpy(devData_, other.devData_, bytes, cudaMemcpyDeviceToDevice));
+}
+
+
+template<class T>
+DevMatrix<T>::DevMatrix(const TMatrix &other) : rows_(other.Get_Rows()), cols_(other.Get_Cols()) {
+    size_t bytes = sizeof(T) * rows_ * cols_;
+    T* tmp = (T*) malloc(bytes);
+
+    for (int i = 0; i < rows_; i++) {
+        for (int j = 0; j < cols_; j++) {
+            tmp[IDX2C(i,j,rows_)] = (T)other[i][j];
+        }
+    }
+
+    CudaErrHandler(cudaMalloc((void**)&devData_, bytes));
+    CudaErrHandler(cudaMemcpy(devData_, tmp, bytes, cudaMemcpyHostToDevice));
+    free(tmp);
 }
 
 template <class T>
@@ -116,17 +141,51 @@ TMatrix DevMatrix<T>::ToTMatrix() const {
     return res;
 }
 
+template<class U>
+DevMatrix<U> Eye(size_t n) {
+    DevMatrix<U> I(n,n);
+
+    Eye<<<xBlocks, xThreads>>>(I.devData_, n);
+
+    return I;
+}
+
+template <class U>
+DevMatrix<U> Random(size_t rows, size_t cols, U max) {
+    std::mt19937 MyRNG;
+    MyRNG.seed(seed_val);
+    std::uniform_real_distribution<U> val(0, max);
+
+    size_t bytes = sizeof(U) * rows * cols;
+    U* tmp = (U*)malloc(bytes);
+
+    for (size_t i = 0; i < rows; i++) {
+        for (size_t j = 0; j < cols; j++) {
+            tmp[IDX2C(i,j,rows)] = val(MyRNG);
+        }
+    }
+
+    DevMatrix<U> res(rows,cols);
+
+    cudaMemcpy(res.devData_, tmp, bytes, cudaMemcpyHostToDevice);
+
+    free(tmp);
+
+    return res;
+}
+
 template <class T>
 DevMatrix<T> DevMatrix<T>::Inverse() const {
     size_t n = cols_;
     size_t bytes = sizeof(T) * n * n;
     T* devInverse;
 
+    DevMatrix<T> eye = Eye<T>(n);
     DevMatrix<T> tmp(n, 2 * n);
 
     CudaErrHandler(cudaMalloc((void**)&devInverse, 2 * bytes));
-    //CudaErrHandler(cudaMemset(devInverse, 0, 2 * bytes));
     CudaErrHandler(cudaMemcpy(devInverse, devData_, bytes, cudaMemcpyDeviceToDevice));
+    CudaErrHandler(cudaMemcpy(devInverse + n * n, eye.devData_, bytes, cudaMemcpyDeviceToDevice));
     comparator<T> comp;
 
     for (int i = 0; i < n; i++) {
@@ -137,27 +196,26 @@ DevMatrix<T> DevMatrix<T>::Inverse() const {
 
         if (maxIdx != i) {
             SwapRows<T><<<dim3(xBlocks), dim3(xThreads)>>>(devInverse, n, i, maxIdx);
-            CudaErrHandler(cudaDeviceSynchronize());
+            CudaErrHandler(cudaGetLastError());
         }
 
         ForwardGauss<T><<<dim3(xBlocks, yBlocks), dim3(xThreads,yThreads)>>>(devInverse,n,i);
-        CudaErrHandler(cudaDeviceSynchronize());
+        CudaErrHandler(cudaGetLastError());
     }
 
     for (int i = n - 1; i >= 0; i--) {
         BackwardGauss<T><<<dim3(xBlocks, yBlocks), dim3(xThreads,yThreads)>>>(devInverse, n, i);
-        CudaErrHandler(cudaDeviceSynchronize());
+        CudaErrHandler(cudaGetLastError());
     }
 
     Normalize<T><<<dim3(xBlocks, yBlocks), dim3(xThreads,yThreads)>>>(devInverse, n);
-    CudaErrHandler(cudaDeviceSynchronize());
+    CudaErrHandler(cudaGetLastError());
 
-    //CudaErrHandler(cudaDeviceSynchronize());
+
 
     DevMatrix<T> res(n,n);
 
     res.SetData(devInverse, n * n, 0, bytes);
-    //cudaMemcpy(res.devData_, devInverse + n * n, bytes, cudaMemcpyDeviceToDevice);
 
     CudaErrHandler(cudaFree(devInverse));
 
@@ -215,6 +273,38 @@ DevMatrix<T>& DevMatrix<T>::operator= (const Matrix& other) {
 template<class T>
 DevMatrix<T> DevMatrix<T>::operator* (const DevMatrix<T>& other) const {
     size_t m = rows_;
+    size_t n = cols_;
+    size_t k = other.cols_;
+
+    DevMatrix<T> res(m,k);
+
+    dim3 blocks = dim3(
+            (int) std::ceil((double)m / xThreads),
+            (int) std::ceil((double)k / yThreads),
+            1
+            );
+
+    /*
+    dim3 blocks = dim3(
+            xBlocks,
+            yBlocks,
+            1
+            );
+    */
+
+    dim3 threads = dim3(
+            xThreads,
+            yThreads,
+            1
+            );
+
+    matrixMul<<<blocks,threads>>>(devData_, other.devData_, res.devData_, m,n,k);
+    CudaErrHandler(cudaGetLastError());
+
+    return res;
+
+    /*
+    size_t m = rows_;
     size_t n = other.cols_;
     DevMatrix<T> res(m,n);
 
@@ -236,7 +326,46 @@ DevMatrix<T> DevMatrix<T>::operator* (const DevMatrix<T>& other) const {
                 &beta, res.devData_, m);
 
     return res;
+     */
 }
+
+template<class U>
+std::ostream &operator<<(std::ostream &out, const DevMatrix<U> &m) {
+    out << std::setprecision(5) << std::fixed;
+    size_t bytes = sizeof(U) * m.rows_ * m.cols_;
+    U* tmp = (U*)malloc(bytes);
+    CudaErrHandler(cudaMemcpy(tmp, m.devData_, bytes, cudaMemcpyDeviceToHost));
+
+    for (size_t i = 0; i < m.rows_; i++) {
+        for (size_t j = 0; j < m.cols_; j++) {
+            out << tmp[IDX2C(i,j,m.rows_)] << ' ';
+        }
+        out << '\n';
+    }
+
+    free(tmp);
+
+    return out;
+}
+
+template<class U>
+std::istream &operator>>(std::istream &in, DevMatrix<U> &m) {
+    size_t bytes = sizeof(U) * m.rows_ * m.cols_;
+    U* tmp = (U*)malloc(bytes);
+
+    for (size_t i = 0; i < m.rows_; i++) {
+        for (size_t j = 0; j < m.cols_; j++) {
+            in >> tmp[IDX2C(i,j,m.rows_)];
+        }
+    }
+
+    CudaErrHandler(cudaMemcpy(m.devData_, tmp, bytes, cudaMemcpyHostToDevice));
+
+    free(tmp);
+
+    return in;
+}
+
 
 
 #endif

@@ -2,7 +2,7 @@
 
 #include <utility>
 
-ImplicitTensor::ImplicitTensor(size_t d, std::vector<size_t>  s, std::function<float(const std::vector<size_t> &)> f) :
+ImplicitTensor::ImplicitTensor(size_t d, std::vector<size_t>  s, std::function<double(const std::vector<size_t> &)> f) :
     d_(d), s_(std::move(s)), f_(std::move(f)) {
         leftNestedSequence_.emplace_back(std::vector<size_t>());
         k_ = 0;
@@ -16,7 +16,7 @@ const std::vector<size_t>& ImplicitTensor::Sizes() const {
     return s_;
 }
 
-float ImplicitTensor::operator()(size_t i, size_t j) const {
+double ImplicitTensor::operator()(size_t i, size_t j) const {
     std::vector<size_t> leftIdxs = unfoldRowIdx(i);
     std::vector<size_t> rightIdxs = unfoldColIdx(j);
 
