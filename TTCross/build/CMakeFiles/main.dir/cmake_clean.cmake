@@ -1,7 +1,9 @@
 file(REMOVE_RECURSE
   "CMakeFiles/main.dir/main.cpp.o"
   "CMakeFiles/main.dir/src/calculation.cpp.o"
+  "CMakeFiles/main.dir/src/calculation.cu.o"
   "CMakeFiles/main.dir/src/core.cpp.o"
+  "CMakeFiles/main.dir/src/dev_matrix.cu.o"
   "CMakeFiles/main.dir/src/implicit_tensor.cpp.o"
   "CMakeFiles/main.dir/src/matrix.cpp.o"
   "CMakeFiles/main.dir/src/skeleton.cpp.o"
@@ -13,6 +15,6 @@ file(REMOVE_RECURSE
 )
 
 # Per-language clean rules from dependency scanning.
-foreach(lang CXX)
+foreach(lang CUDA CXX)
   include(CMakeFiles/main.dir/cmake_clean_${lang}.cmake OPTIONAL)
 endforeach()

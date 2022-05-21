@@ -20,6 +20,12 @@ matrix.hpp
 matrix.hpp
 /home/courage/MAI/diploma/TTCross/include/matrix.hpp
 
+/home/courage/MAI/diploma/TTCross/include/host_matrix.hpp
+stdlib.h
+-
+cstring
+-
+
 /home/courage/MAI/diploma/TTCross/include/implicit_tensor.hpp
 vector
 -
@@ -83,6 +89,8 @@ implicit_tensor.hpp
 /home/courage/MAI/diploma/TTCross/include/implicit_tensor.hpp
 matrix.hpp
 /home/courage/MAI/diploma/TTCross/include/matrix.hpp
+host_matrix.hpp
+/home/courage/MAI/diploma/TTCross/include/host_matrix.hpp
 
 /home/courage/MAI/diploma/TTCross/main.cpp
 random
@@ -97,4 +105,36 @@ include/tensor_train.hpp
 /home/courage/MAI/diploma/TTCross/include/tensor_train.hpp
 include/tensor.hpp
 /home/courage/MAI/diploma/TTCross/include/tensor.hpp
+
+/home/courage/MAI/diploma/TTCross/src/calculation.cpp
+vector
+-
+algorithm
+-
+limits
+-
+../include/calculation.hpp
+/home/courage/MAI/diploma/TTCross/include/calculation.hpp
+
+/home/courage/MAI/diploma/TTCross/src/core.cpp
+../include/core.hpp
+/home/courage/MAI/diploma/TTCross/include/core.hpp
+
+/home/courage/MAI/diploma/TTCross/src/matrix.cpp
+../include/matrix.hpp
+/home/courage/MAI/diploma/TTCross/include/matrix.hpp
+../include/calculation.hpp
+/home/courage/MAI/diploma/TTCross/include/calculation.hpp
+
+/home/courage/MAI/diploma/TTCross/src/skeleton.cpp
+../include/skeleton.hpp
+/home/courage/MAI/diploma/TTCross/include/skeleton.hpp
+
+/home/courage/MAI/diploma/TTCross/src/tensor_train.cpp
+../include/tensor_train.hpp
+/home/courage/MAI/diploma/TTCross/include/tensor_train.hpp
+
+/home/courage/MAI/diploma/TTCross/src/unfolding_matrix.cpp
+../include/unfolding_matrix.hpp
+/home/courage/MAI/diploma/TTCross/include/unfolding_matrix.hpp
 

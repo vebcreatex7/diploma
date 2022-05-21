@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/courage/MAI/diploma/TTCross/include/calculation.cuh
+cuda_runtime.h
+-
+
+/home/courage/MAI/diploma/TTCross/include/dev_matrix.cuh
+stdlib.h
+-
+cstring
+-
+cuda_runtime.h
+-
+cublas_v2.h
+-
+host_matrix.hpp
+/home/courage/MAI/diploma/TTCross/include/host_matrix.hpp
+
+/home/courage/MAI/diploma/TTCross/include/host_matrix.hpp
+stdlib.h
+-
+cstring
+-
+
+/home/courage/MAI/diploma/TTCross/src/calculation.cu
+../include/calculation.cuh
+/home/courage/MAI/diploma/TTCross/include/calculation.cuh
+
+/home/courage/MAI/diploma/TTCross/src/dev_matrix.cu
+thrust/extrema.h
+-
+thrust/device_vector.h
+-
+../include/dev_matrix.cuh
+/home/courage/MAI/diploma/TTCross/include/dev_matrix.cuh
+../include/calculation.cuh
+/home/courage/MAI/diploma/TTCross/include/calculation.cuh
+

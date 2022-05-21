@@ -1,8 +1,18 @@
 # The set of languages for which implicit dependencies are needed:
 set(CMAKE_DEPENDS_LANGUAGES
+  "CUDA"
   "CXX"
   )
 # The set of files for implicit dependencies of each language:
+set(CMAKE_DEPENDS_CHECK_CUDA
+  "/home/courage/MAI/diploma/TTCross/src/calculation.cu" "/home/courage/MAI/diploma/TTCross/build/CMakeFiles/main.dir/src/calculation.cu.o"
+  "/home/courage/MAI/diploma/TTCross/src/dev_matrix.cu" "/home/courage/MAI/diploma/TTCross/build/CMakeFiles/main.dir/src/dev_matrix.cu.o"
+  )
+set(CMAKE_CUDA_COMPILER_ID "NVIDIA")
+
+# The include file search paths:
+set(CMAKE_CUDA_TARGET_INCLUDE_PATH
+  )
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/courage/MAI/diploma/TTCross/main.cpp" "/home/courage/MAI/diploma/TTCross/build/CMakeFiles/main.dir/main.cpp.o"
   "/home/courage/MAI/diploma/TTCross/src/calculation.cpp" "/home/courage/MAI/diploma/TTCross/build/CMakeFiles/main.dir/src/calculation.cpp.o"

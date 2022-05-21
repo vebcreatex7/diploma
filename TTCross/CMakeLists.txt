@@ -1,17 +1,21 @@
 cmake_minimum_required(VERSION 3.16.3)
 
-project(diploma)
+project(cuda_projct CUDA)
 
-set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_FLAGS "-Wall -ggdb")
-set(CMAKE_BUILD_TYPE Debug)
-add_executable(main main.cpp
-                    src/matrix.cpp
-                    src/calculation.cpp
-                    src/skeleton.cpp
-                    src/core.cpp
-                    src/tensor_train.cpp
-                    src/implicit_tensor.cpp
-                    src/unfolding_matrix.cpp
-                    src/tensor.cpp)
+set(CMAKE_CUDA_STANDARD  14)
+add_compile_options(-G)
 
+
+
+add_executable(main main.cu
+        src/matrix.cu
+        src/skeleton.cu
+        src/core.cu
+        src/tensor_train.cu
+        src/implicit_tensor.cu
+        src/unfolding_matrix.cu
+        src/tensor.cu
+        src/calculation.cu
+        src/host_matrix.cu)
+
+target_link_libraries(main -lcublas)
