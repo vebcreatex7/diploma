@@ -16,6 +16,7 @@ private:
     std::vector<Core> cores_;
     std::vector<size_t> ttRanks_;
     std::vector<size_t> sizes_;
+    size_t maxRank;
 
 
 public:

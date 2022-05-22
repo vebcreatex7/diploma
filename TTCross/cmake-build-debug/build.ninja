@@ -132,6 +132,18 @@ build CMakeFiles/main.dir/src/host_matrix.cu.o: CUDA_COMPILER__main_Debug /home/
   OBJECT_DIR = CMakeFiles/main.dir
   OBJECT_FILE_DIR = CMakeFiles/main.dir/src
 
+build CMakeFiles/main.dir/src/dev_core.cu.o: CUDA_COMPILER__main_Debug /home/courage/MAI/diploma/TTCross/src/dev_core.cu || cmake_object_order_depends_target_main
+  DEP_FILE = CMakeFiles/main.dir/src/dev_core.cu.o.d
+  FLAGS = -g -G -std=c++14
+  OBJECT_DIR = CMakeFiles/main.dir
+  OBJECT_FILE_DIR = CMakeFiles/main.dir/src
+
+build CMakeFiles/main.dir/src/dev_tensor_train.cu.o: CUDA_COMPILER__main_Debug /home/courage/MAI/diploma/TTCross/src/dev_tensor_train.cu || cmake_object_order_depends_target_main
+  DEP_FILE = CMakeFiles/main.dir/src/dev_tensor_train.cu.o.d
+  FLAGS = -g -G -std=c++14
+  OBJECT_DIR = CMakeFiles/main.dir
+  OBJECT_FILE_DIR = CMakeFiles/main.dir/src
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target main
@@ -140,7 +152,7 @@ build CMakeFiles/main.dir/src/host_matrix.cu.o: CUDA_COMPILER__main_Debug /home/
 #############################################
 # Link the executable main
 
-build main: CUDA_EXECUTABLE_LINKER__main_Debug CMakeFiles/main.dir/main.cu.o CMakeFiles/main.dir/src/matrix.cu.o CMakeFiles/main.dir/src/skeleton.cu.o CMakeFiles/main.dir/src/core.cu.o CMakeFiles/main.dir/src/tensor_train.cu.o CMakeFiles/main.dir/src/implicit_tensor.cu.o CMakeFiles/main.dir/src/unfolding_matrix.cu.o CMakeFiles/main.dir/src/tensor.cu.o CMakeFiles/main.dir/src/calculation.cu.o CMakeFiles/main.dir/src/host_matrix.cu.o
+build main: CUDA_EXECUTABLE_LINKER__main_Debug CMakeFiles/main.dir/main.cu.o CMakeFiles/main.dir/src/matrix.cu.o CMakeFiles/main.dir/src/skeleton.cu.o CMakeFiles/main.dir/src/core.cu.o CMakeFiles/main.dir/src/tensor_train.cu.o CMakeFiles/main.dir/src/implicit_tensor.cu.o CMakeFiles/main.dir/src/unfolding_matrix.cu.o CMakeFiles/main.dir/src/tensor.cu.o CMakeFiles/main.dir/src/calculation.cu.o CMakeFiles/main.dir/src/host_matrix.cu.o CMakeFiles/main.dir/src/dev_core.cu.o CMakeFiles/main.dir/src/dev_tensor_train.cu.o
   FLAGS = -g
   LINK_LIBRARIES = -lcublas  -lcudadevrt  -lcudart_static  -lrt  -lpthread  -ldl
   OBJECT_DIR = CMakeFiles/main.dir

@@ -7,6 +7,19 @@
 
 #define IDX2C(i,j,rows) (((j)*(rows)) + (i))
 
+#define CudaErrHandler(call)  										\
+do {																\
+	cudaError_t res = call;											\
+	if (res != cudaSuccess) {										\
+		fprintf(stderr, "ERROR in %s:%d. Message: %s Code: %d\n",			\
+				__FILE__, __LINE__, cudaGetErrorString(res), res);		\
+		exit(0);													\
+	}																\
+} while(0)
+
+#define XTHREADS 128
+#define YTHREADS 8
+
 template <class T>
 struct comparator {
     __host__ __device__ bool operator()(T a, T b) {
@@ -88,6 +101,24 @@ __global__ void matrixMul(const T *a, const T *b, T *c, size_t m, size_t n, size
     }
 
     c[IDX2C(i,j,m)] = sum;
+}
+
+template <class T>
+void MatrixMul(const T* a, const T* b, T* c, size_t m, size_t n, size_t k) {
+    dim3 blocks = dim3(
+            (int) std::ceil((double)m / XTHREADS),
+            (int) std::ceil((double)k / YTHREADS),
+            1
+    );
+
+    dim3 threads = dim3(
+            XTHREADS,
+            YTHREADS,
+            1
+    );
+
+    matrixMul<<<blocks, threads>>>(a,b,c,m,n,k);
+    CudaErrHandler(cudaGetLastError());
 }
 
 TMatrix LU_Solving_System(TMatrix const& L, TMatrix const& U, TMatrix b, std::vector<std::pair<size_t, size_t>> const& p);

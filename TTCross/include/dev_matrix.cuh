@@ -11,16 +11,6 @@
 #include "matrix.cuh"
 #include "calculation.cuh"
 
-#define CudaErrHandler(call)  										\
-do {																\
-	cudaError_t res = call;											\
-	if (res != cudaSuccess) {										\
-		fprintf(stderr, "ERROR in %s:%d. Message: %s Code: %d\n",			\
-				__FILE__, __LINE__, cudaGetErrorString(res), res);		\
-		exit(0);													\
-	}																\
-} while(0)
-
 const size_t xThreads = 128;
 const size_t yThreads = 8;
 const size_t xBlocks  = 128;
@@ -109,7 +99,7 @@ DevMatrix<T>::DevMatrix(const Matrix& other) : rows_(other.Rows()), cols_(other.
 template <class T>
 DevMatrix<T>::~DevMatrix() {
     rows_ = cols_ = 0;
-    CudaErrHandler(cudaFree(devData_));
+    //CudaErrHandler(cudaFree(devData_));
 }
 
 template <class T>
@@ -217,7 +207,7 @@ DevMatrix<T> DevMatrix<T>::Inverse() const {
 
     res.SetData(devInverse, n * n, 0, bytes);
 
-    CudaErrHandler(cudaFree(devInverse));
+    //CudaErrHandler(cudaFree(devInverse));
 
     return res;
 
@@ -277,56 +267,9 @@ DevMatrix<T> DevMatrix<T>::operator* (const DevMatrix<T>& other) const {
     size_t k = other.cols_;
 
     DevMatrix<T> res(m,k);
-
-    dim3 blocks = dim3(
-            (int) std::ceil((double)m / xThreads),
-            (int) std::ceil((double)k / yThreads),
-            1
-            );
-
-    /*
-    dim3 blocks = dim3(
-            xBlocks,
-            yBlocks,
-            1
-            );
-    */
-
-    dim3 threads = dim3(
-            xThreads,
-            yThreads,
-            1
-            );
-
-    matrixMul<<<blocks,threads>>>(devData_, other.devData_, res.devData_, m,n,k);
-    CudaErrHandler(cudaGetLastError());
+    MatrixMul<double>(devData_,other.devData_, res.devData_,m,n,k);
 
     return res;
-
-    /*
-    size_t m = rows_;
-    size_t n = other.cols_;
-    DevMatrix<T> res(m,n);
-
-    size_t bytes = sizeof(T) * m * n;
-
-    cudaMalloc((void**)&res.devData_, bytes);
-
-    cublasHandle_t handle;
-    cublasCreate(&handle);
-
-    T alpha = 1;
-    T beta = 0;
-
-    cublasSgemm(handle,
-                CUBLAS_OP_N,CUBLAS_OP_N,
-                m, n, cols_,
-                &alpha,devData_,m,
-                other.devData_, cols_,
-                &beta, res.devData_, m);
-
-    return res;
-     */
 }
 
 template<class U>

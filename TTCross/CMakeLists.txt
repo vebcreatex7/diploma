@@ -16,6 +16,6 @@ add_executable(main main.cu
         src/unfolding_matrix.cu
         src/tensor.cu
         src/calculation.cu
-        src/host_matrix.cu)
+        src/host_matrix.cu src/dev_core.cu src/dev_tensor_train.cu)
 
 target_link_libraries(main -lcublas)
