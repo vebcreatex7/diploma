@@ -267,7 +267,11 @@ DevMatrix<T> DevMatrix<T>::operator* (const DevMatrix<T>& other) const {
     size_t k = other.cols_;
 
     DevMatrix<T> res(m,k);
-    MatrixMul<double>(devData_,other.devData_, res.devData_,m,n,k);
+
+    cudaStream_t s;
+    CudaErrHandler(cudaStreamCreate(&s));
+    MatrixMul<double>(devData_,other.devData_, res.devData_,m,n,k, s);
+    CudaErrHandler(cudaStreamDestroy(s));
 
     return res;
 }

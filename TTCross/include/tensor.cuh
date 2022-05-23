@@ -16,6 +16,7 @@ class Tensor {
     Tensor(size_t d, std::vector<size_t>  sizes);
     void FillSparse(double maxVal, double density);
     void FillSin();
+    void FillHilbert();
     size_t OverallSize() const {return overallSize_;}
     double f(const std::vector<size_t>& idxs) const {return this->operator()(idxs);}
 

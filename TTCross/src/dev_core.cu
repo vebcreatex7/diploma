@@ -10,6 +10,7 @@ DevCore::DevCore(const double *src, size_t r_prev, size_t n_k, size_t r_k) {
 
     size_t bytes = sizeof(double) * a_ * b_ * c_;
     CudaErrHandler(cudaMalloc((void**)&devData_, bytes));
+    CudaErrHandler(cudaMemset(devData_,0,bytes));
 
 
     for (size_t i = 0; i < r_k; i++) {

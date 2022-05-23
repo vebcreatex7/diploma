@@ -89,6 +89,10 @@ void plint(double* devData, size_t m, size_t n) {
 }
 
 double DevTensorTrain::operator()(const vector<size_t> &idxs) {
+    memcpyCount += 2;
+    cudaStream_t s1, s2;
+
+    cudaStreamCreate(&s1);
     CudaErrHandler(cudaMemcpy(devRes,cores_[0].Matrix(idxs[0]), sizeof(double) * cores_[0].GetC(), cudaMemcpyDeviceToDevice));
 
     for (size_t i = 1; i < idxs.size(); i++) {
@@ -98,7 +102,7 @@ double DevTensorTrain::operator()(const vector<size_t> &idxs) {
 
         double *core = cores_[i].Matrix(idxs[i]);
 
-        MatrixMul(devRes, core, devTmp, m, n, k);
+        MatrixMul(devRes, core, devTmp, m, n, k, s1);
 
         double* swap = devRes;
         devRes = devTmp;
@@ -108,6 +112,7 @@ double DevTensorTrain::operator()(const vector<size_t> &idxs) {
     double val;
     CudaErrHandler(cudaMemcpy(&val, devRes, sizeof(double), cudaMemcpyDeviceToHost));
 
+    cudaStreamDestroy(s1);
     return val;
 }
 

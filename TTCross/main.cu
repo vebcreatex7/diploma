@@ -5,6 +5,7 @@
 #include "include/tensor_train.cuh"
 #include "include/tensor.cuh"
 #include "include/dev_tensor_train.cuh"
+#include "include/dev_unfolding_matrix.cuh"
 
 
 using namespace std;
@@ -34,11 +35,8 @@ void CPUvsGPU() {
     size_t maxR;
     std::cin >> maxR;
 
-    double density;
-    std::cin >> density;
-
     Tensor tensor(d,sizes);
-    tensor.FillSparse(1, density);
+    tensor.FillHilbert();
 
     ImplicitTensor impTensor(sizes.size(), sizes, std::bind(&Tensor::f, tensor,std::placeholders::_1));
 
@@ -87,7 +85,8 @@ void CPUvsGPU() {
     std::cout
             << "norm = " << sqrt(norm) << std::endl
             << "ttNorm = " << sqrt(ttNorm) << std::endl
-            << "devTtNorm = " << sqrt(devTtNorm) << std::endl;
+            << "devTtNorm = " << sqrt(devTtNorm) << std::endl
+            << "memcpy count = " << devTt.MemcpyCount() << std::endl;
     /*
     begin = clock();
     tt.devTTCross(impTensor, maxR, 0.1);

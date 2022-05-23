@@ -15,6 +15,8 @@ double UnfoldingMatrix::operator()(size_t i, size_t j) const {
 }
 
 UnfoldingMatrix& UnfoldingMatrix::operator= (const UnfoldingMatrix& other) {
+    if (this == &other) return *this;
+
     rows_ = other.rows_;
     cols_ = other.cols_;
     t_ = other.t_;
@@ -81,7 +83,7 @@ Matrix UnfoldingMatrix::GetCols(const std::vector<size_t>& J) const {
 
     for (size_t i = 0; i < rows_; i++) {
         for (size_t j = 0; j < cols; j++) {
-            res(i,j) = this->operator()(i, J[j]);
+            res(i,j) = t_->operator()(i, J[j]);
         }
     }
 
@@ -95,7 +97,7 @@ Matrix UnfoldingMatrix::GetMaxvol(const std::vector<size_t> &I,
 
     for (size_t i = 0; i < n; i++) {
         for (size_t j = 0; j < n; j++) {
-            res(i,j) = this->operator()(I[i],J[j]);
+            res(i,j) = t_->operator()(I[i],J[j]);
         }
     }
 

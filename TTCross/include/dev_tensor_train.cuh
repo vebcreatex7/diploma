@@ -6,8 +6,8 @@
 
 #include "dev_core.cuh"
 #include "skeleton.cuh"
-#include "implicit_tensor.cuh"
-#include "unfolding_matrix.cuh"
+#include "dev_implicit_tensor.cuh"
+#include "dev_unfolding_matrix.cuh"
 
 class DevTensorTrain {
 private:
@@ -15,7 +15,7 @@ private:
     std::vector<size_t> ttRanks_;
     std::vector<size_t> sizes_;
     size_t foundMaxRank;
-
+    size_t memcpyCount = 0;
     double* devRes{};
     double* devTmp{};
 
@@ -29,6 +29,8 @@ public:
     void TTCross(ImplicitTensor t, double eps);
     void TTCross(ImplicitTensor t, size_t maxR, double eps);
     void TTCross(ImplicitTensor t, const std::vector<size_t>& upperBoundRanks, double eps);
+
+    size_t MemcpyCount() {return memcpyCount;};
 
 
     double operator()(const std::vector<size_t>& idxs);

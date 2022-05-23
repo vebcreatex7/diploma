@@ -6,6 +6,7 @@
 #include "implicit_tensor.cuh"
 #include "matrix.cuh"
 #include "host_matrix.cuh"
+#include "dev_matrix.cuh"
 
 
 class UnfoldingMatrix {
@@ -19,6 +20,7 @@ public:
 
     size_t Rows() const {return rows_;}
     size_t Cols() const {return cols_;}
+
     TMatrix ExplicitRows(const std::vector<size_t>& I) const;
     TMatrix ExplicitCols(const std::vector<size_t>& J) const;
     TMatrix ExplicitMaxvol(const std::vector<size_t>& I,const std::vector<size_t>& J) const;

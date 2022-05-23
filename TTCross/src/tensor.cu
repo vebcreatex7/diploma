@@ -29,6 +29,12 @@ void Tensor::FillSin() {
     }
 }
 
+void Tensor::FillHilbert() {
+    for (size_t i = 0; i < overallSize_; i++) {
+        data_[i] = (double) 1/ (i+1);
+    }
+}
+
 double Tensor::operator()(const std::vector<size_t>& idxs) const {
         size_t remainder = overallSize_;
         size_t p = 0;

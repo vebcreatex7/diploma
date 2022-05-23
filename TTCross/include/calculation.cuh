@@ -9,10 +9,10 @@
 
 #define CudaErrHandler(call)  										\
 do {																\
-	cudaError_t res = call;											\
-	if (res != cudaSuccess) {										\
-		fprintf(stderr, "ERROR in %s:%d. Message: %s Code: %d\n",			\
-				__FILE__, __LINE__, cudaGetErrorString(res), res);		\
+	cudaError_t zzz = call;											\
+	if (zzz != cudaSuccess) {										\
+		fprintf(stderr, "ERROR in %s:%d. Message: %s Code: %d\n",	\
+				__FILE__, __LINE__, cudaGetErrorString(zzz), zzz);	\
 		exit(0);													\
 	}																\
 } while(0)
@@ -104,7 +104,7 @@ __global__ void matrixMul(const T *a, const T *b, T *c, size_t m, size_t n, size
 }
 
 template <class T>
-void MatrixMul(const T* a, const T* b, T* c, size_t m, size_t n, size_t k) {
+void MatrixMul(const T* a, const T* b, T* c, size_t m, size_t n, size_t k, cudaStream_t s) {
     dim3 blocks = dim3(
             (int) std::ceil((double)m / XTHREADS),
             (int) std::ceil((double)k / YTHREADS),
@@ -116,8 +116,7 @@ void MatrixMul(const T* a, const T* b, T* c, size_t m, size_t n, size_t k) {
             YTHREADS,
             1
     );
-
-    matrixMul<<<blocks, threads>>>(a,b,c,m,n,k);
+    matrixMul<<<blocks, threads,0,s>>>(a,b,c,m,n,k);
     CudaErrHandler(cudaGetLastError());
 }
 
